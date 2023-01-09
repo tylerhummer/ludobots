@@ -11,7 +11,7 @@ p.loadSDF("box.sdf")
 
 
 i = 1
-for i in range(1000):
+for i in range(2000):
     p.stepSimulation()
     time.sleep(1/60)
     print("inside loop,", i)
