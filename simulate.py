@@ -12,7 +12,7 @@ p.loadSDF("boxes.sdf")
 
 i = 1
 for i in range(2000):
-    #p.stepSimulation()  #comment this out to see the starting configuration of the blocks
+    p.stepSimulation()  #comment this out to see the starting configuration of the blocks
     time.sleep(1/60)
     print("inside loop,", i)
 
