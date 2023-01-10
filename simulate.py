@@ -11,13 +11,14 @@ planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 
+pyrosim.Prepare_To_Simulate(robotId)
 
 i = 1
 for i in range(2000):
     p.stepSimulation()  #comment this out to see the starting configuration of the blocks
     backLegTouch = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+    print(backLegTouch)
     time.sleep(1/60)
-    print("inside loop,", i)
 
 p.disconnect()
 
