@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 
 backLegSensorValues = np.load('data/backLeg.npy')
 frontLegSensorValues = np.load('data/frontLeg.npy')
-targetAngles = np.load('data/targetAngles.npy')
+backLegtargetAngles = np.load('data/backLeg_targetAngles.npy')
+frontLegtargetAngles = np.load('data/frontLeg_targetAngles.npy')
 '''
 print(backLegSensorValues)
 print(frontLegSensorValues)
@@ -16,7 +17,8 @@ plt.legend()
 '''
 
 plt.figure(2)
-plt.plot(targetAngles, label="Front Leg Motor Values", linewidth='3')
+plt.plot(backLegtargetAngles, label="Back Leg Motor Values", linewidth='5')
+plt.plot(frontLegtargetAngles, label="Front Leg Motor Values", linewidth='2')
 plt.legend()
 
 plt.show()
