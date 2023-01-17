@@ -22,6 +22,7 @@ backLegSensorValues = numpy.zeros(length_sim)
 frontLegSensorValues = numpy.zeros(length_sim)
 
 target = numpy.pi/2.0
+targetAngles = numpy.sin(numpy.linspace(0, 2*numpy.pi, length_sim))
 
 i = 1
 for i in range(length_sim):
@@ -36,6 +37,7 @@ print(frontLegSensorValues)
 
 numpy.save('data/backLeg', backLegSensorValues)
 numpy.save('data/frontLeg', frontLegSensorValues)
+numpy.save('data/targetAngles', targetAngles)
 p.disconnect()
 
 #comment
