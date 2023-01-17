@@ -16,7 +16,7 @@ plt.legend()
 '''
 
 plt.figure(2)
-plt.plot(targetAngles, label="Sine Function", linewidth='3')
+plt.plot(targetAngles, label="Front Leg Motor Values", linewidth='3')
 plt.legend()
 
 plt.show()

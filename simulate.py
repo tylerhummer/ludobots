@@ -21,8 +21,13 @@ length_sim = 1000
 backLegSensorValues = numpy.zeros(length_sim)
 frontLegSensorValues = numpy.zeros(length_sim)
 
-target = numpy.pi/2.0
-targetAngles = (numpy.pi/4)*(numpy.sin(numpy.linspace(0, 2*numpy.pi, length_sim)))
+amplitude = numpy.pi/4
+frequency = 10
+phaseOffset = 0
+
+x_vals = numpy.linspace(0, 2*numpy.pi, length_sim)
+targetAngles = (amplitude)*(numpy.sin(frequency * x_vals + phaseOffset))
+numpy.save('data/targetAngles', targetAngles)
 
 i = 1
 for i in range(length_sim):
@@ -37,7 +42,7 @@ print(frontLegSensorValues)
 
 numpy.save('data/backLeg', backLegSensorValues)
 numpy.save('data/frontLeg', frontLegSensorValues)
-#numpy.save('data/targetAngles', targetAngles)
+
 p.disconnect()
 
 #comment
