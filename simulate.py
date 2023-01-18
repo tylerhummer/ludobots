@@ -5,8 +5,11 @@ import time
 import numpy
 import random
 import constants as c
+from simulation import SIMULATION
 
 
+simulation = SIMULATION()
+''' 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
@@ -35,5 +38,5 @@ numpy.save('data/backLeg', c.backLegSensorValues)
 numpy.save('data/frontLeg', c.frontLegSensorValues)
 
 p.disconnect()
-
-#comment
+'''
+# Left off at CREATE CLASS HIERARCHY in Task H
