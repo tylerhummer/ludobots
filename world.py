@@ -1,3 +1,4 @@
 class WORLD:
     def __init__(self):
-        pass
+        p.loadSDF("world.sdf")
+        self.planeId = p.loadURDF("plane.urdf")

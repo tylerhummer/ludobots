@@ -10,9 +10,7 @@ from simulation import SIMULATION
 
 simulation = SIMULATION()
 '''
-planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
-p.loadSDF("world.sdf")
 
 numpy.save('data/backLeg_targetAngles', c.backLeg_targetAngles)
 numpy.save('data/frontLeg_targetAngles', c.frontLeg_targetAngles)
