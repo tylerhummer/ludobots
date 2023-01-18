@@ -9,16 +9,10 @@ from simulation import SIMULATION
 
 
 simulation = SIMULATION()
-''' 
-physicsClient = p.connect(p.GUI)
-p.setAdditionalSearchPath(pybullet_data.getDataPath())
-
-p.setGravity(0,0,-9.8)
+'''
 planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
-
-pyrosim.Prepare_To_Simulate(robotId)
 
 numpy.save('data/backLeg_targetAngles', c.backLeg_targetAngles)
 numpy.save('data/frontLeg_targetAngles', c.frontLeg_targetAngles)
