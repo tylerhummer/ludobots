@@ -1,14 +1,12 @@
 import pybullet as p
-import pybullet_data
 import pyrosim.pyrosim as pyrosim
-import time
 import numpy
-import random
 import constants as c
 from simulation import SIMULATION
 
 
 simulation = SIMULATION()
+simulation.Run()
 '''
 robotId = p.loadURDF("body.urdf")
 
@@ -29,6 +27,5 @@ print(c.frontLegSensorValues)
 numpy.save('data/backLeg', c.backLegSensorValues)
 numpy.save('data/frontLeg', c.frontLegSensorValues)
 
-p.disconnect()
 '''
 # Left off at CREATE CLASS HIERARCHY in Task H
