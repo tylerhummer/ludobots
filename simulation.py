@@ -1,21 +1,23 @@
 import pybullet as p
 import pybullet_data
-from world import WORLD
-from robot import ROBOT
+import pyrosim.pyrosim as pyrosim
 import constants as c
 import time
+from world import WORLD
+from robot import ROBOT
+
+
 
 class SIMULATION:
     def __init__(self):
         self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
-        #pyrosim.Prepare_To_Simulate(robotId)
-
-
+        
         self.world = WORLD()
         self.robot = ROBOT()
-
+        pyrosim.Prepare_To_Simulate(self.robot.robotId)
+        self.robot.Prepare_To_Sense()
 
     def Run(self):
         i = 1
@@ -28,5 +30,5 @@ class SIMULATION:
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.frontLeg_targetAngles[i], maxForce=50)
             time.sleep(1/60)
 
-    def __del__(self):
-        p.disconnect()
+    #def __del__(self):
+        #p.disconnect()

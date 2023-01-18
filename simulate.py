@@ -28,4 +28,3 @@ numpy.save('data/backLeg', c.backLegSensorValues)
 numpy.save('data/frontLeg', c.frontLegSensorValues)
 
 '''
-# Left off at CREATE CLASS HIERARCHY in Task H
