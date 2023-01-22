@@ -8,9 +8,10 @@ class SENSOR:
         self.linkName = linkName
         print(self.linkName)
         self.values = numpy.zeros(c.length_sim)
-        print(self.values)
 
 
     def Get_Value(self, time_step):
         self.values[time_step] = pyrosim.Get_Touch_Sensor_Value_For_Link(self.linkName)
-        #print(self.values)
+        t = time_step
+        if t == (c.length_sim-1): 
+            print(self.values)

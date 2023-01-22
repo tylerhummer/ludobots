@@ -2,6 +2,7 @@ import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 from sensor import SENSOR
+from motor import MOTOR
 import constants as c
 
 class ROBOT:
@@ -19,6 +20,11 @@ class ROBOT:
 
     def Sense(self, time_step):
         for i in self.sensors:
-            print(i)
             self.sensors[i].Get_Value(time_step)
             #c.backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+        #self.sensors.Print_Values()
+
+        
+    def Prepare_To_Act(self):
+        for jointName in pyrosim.jointNamesToIndices:
+            self.motors[jointName] = MOTOR(jointName)
