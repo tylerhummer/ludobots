@@ -15,3 +15,8 @@ class SENSOR:
         t = time_step
         if t == (c.length_sim-1): 
             print(self.values)
+
+    def Save_Value(self, linkName):
+        pass
+        numpy.save('data/' f'{linkName}', self.values)
+        #numpy.save('data/frontLeg', c.frontLegSensorValues)
