@@ -4,11 +4,14 @@ import pyrosim.pyrosim as pyrosim
 from sensor import SENSOR
 from motor import MOTOR
 import constants as c
+from pyrosim.neuralNetwork import NEURAL_NETWORK
+
 
 class ROBOT:
     def __init__(self):
         self.sensors = {}
         self.motors = {}
+        self.nn = NEURAL_NETWORK("brain.nndf")
         self.robotId = p.loadURDF("body.urdf")
 
 
@@ -28,9 +31,12 @@ class ROBOT:
     def Prepare_To_Act(self):
         for jointName in pyrosim.jointNamesToIndices:
             self.motors[jointName] = MOTOR(jointName)
-            print(self.motors[jointName])
+            #print(self.motors[jointName])
 
 
     def Act(self, time_step):
         for i in self.motors:
             self.motors[i].Set_Value(time_step, self.robotId)
+
+    def Think(self):
+        self.nn.Print()

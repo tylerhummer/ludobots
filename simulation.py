@@ -27,6 +27,7 @@ class SIMULATION:
             print(time_step)
             p.stepSimulation()  #comment this out to see the starting configuration of the blocks
             self.robot.Sense(time_step)
+            self.robot.Think()
             self.robot.Act(time_step)
             #c.backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
             #c.frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")

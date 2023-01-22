@@ -12,11 +12,11 @@ class SENSOR:
 
     def Get_Value(self, time_step):
         self.values[time_step] = pyrosim.Get_Touch_Sensor_Value_For_Link(self.linkName)
-        t = time_step
-        if t == (c.length_sim-1): 
-            print(self.values)
+        
+        #t = time_step
+        #if t == (c.length_sim-1): 
+        #    print(self.values)
 
     def Save_Value(self, linkName):
-        pass
         numpy.save('data/' f'{linkName}', self.values)
         #numpy.save('data/frontLeg', c.frontLegSensorValues)
