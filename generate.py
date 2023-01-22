@@ -35,6 +35,23 @@ def Create_Robot_Trips():
     pyrosim.End()
     return()
 
+
+def Generate_Body():
+    pyrosim.Start_URDF("body.urdf")
+    pyrosim.Send_Cube(name="Torso", pos=[1.5,0,1.5], size=[length, width, height])
+    pyrosim.Send_Joint(name = "Torso_BackLeg", parent = "Torso", child = "BackLeg", type = "revolute", position = [1.0,0,1.0])
+    pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5], size=[length, width, height])
+    pyrosim.Send_Joint(name = "Torso_FrontLeg", parent = "Torso", child = "FrontLeg", type = "revolute", position = [2.0,0,1.0])
+    pyrosim.Send_Cube(name="FrontLeg", pos=[0.5,0,-0.5], size=[length, width, height])
+    pyrosim.End()
+    return()
+
+def Generate_Brain():
+    pyrosim.Start_NeuralNetwork("brain.nndf")
+    pyrosim.Send_Sensor_Neuron(name = 0, linkName = "Torso")
+    pyrosim.End()
+    return()
+
 length = 1
 width = 1
 height = 1
@@ -44,7 +61,9 @@ y = 0
 z = 0.5
 
 Create_World()
-Create_Robot_Trips()
+Generate_Body()
+Generate_Brain()
+#Create_Robot_Trips()
 #Create_Robot_Practice()  #This was the step by step tutorial from the course
 
 
