@@ -27,6 +27,7 @@ class SIMULATION:
             print(time_step)
             p.stepSimulation()  #comment this out to see the starting configuration of the blocks
             self.robot.Sense(time_step)
+            self.robot.Act(time_step)
             #c.backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
             #c.frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.backLeg_targetAngles[i], maxForce=50)
