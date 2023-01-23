@@ -24,8 +24,6 @@ class ROBOT:
     def Sense(self, time_step):
         for i in self.sensors:
             self.sensors[i].Get_Value(time_step)
-            #c.backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-        #self.sensors.Print_Values()
 
         
     def Prepare_To_Act(self):
