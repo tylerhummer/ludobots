@@ -42,3 +42,4 @@ class ROBOT:
         self.nn.Update()
         self.nn.Print()
         
+# Neurons Step 30ish
