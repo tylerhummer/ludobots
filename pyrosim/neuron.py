@@ -66,6 +66,9 @@ class NEURON:
 
         self.value = value
 
+    def Update_Sensor_Neuron(self):
+        pass
+
 # -------------------------- Private methods -------------------------
 
     def Determine_Name(self,line):
