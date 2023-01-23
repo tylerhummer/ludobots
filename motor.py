@@ -28,8 +28,8 @@ class MOTOR:
         #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.frontLeg_targetAngles[i], maxForce=50)
 
 
-    def Set_Value(self, time_step, robotId):
-        pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName =self.jointName, controlMode = p.POSITION_CONTROL, targetPosition = self.motor_Values[time_step], maxForce=50)
+    def Set_Value(self, desiredAngle, robotId):
+        pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName =self.jointName, controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce=50)
 
 
     def Save_Value(self):
