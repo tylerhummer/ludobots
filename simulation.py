@@ -24,7 +24,7 @@ class SIMULATION:
     def Run(self):
         time_step = 1
         for time_step in range(c.length_sim):
-            print(time_step)
+            print("time step", time_step)
             p.stepSimulation()  #comment this out to see the starting configuration of the blocks
             self.robot.Sense(time_step)
             self.robot.Think()
@@ -34,5 +34,6 @@ class SIMULATION:
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.backLeg_targetAngles[i], maxForce=50)
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.frontLeg_targetAngles[i], maxForce=50)
             time.sleep(1/60)
+
     def __del__(self):
         p.disconnect()
