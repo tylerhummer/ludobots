@@ -8,6 +8,7 @@ from simulation import SIMULATION
 
 simulation = SIMULATION()
 simulation.Run()
+simulation.Get_Fitness()
 '''
 robotId = p.loadURDF("body.urdf")
 
