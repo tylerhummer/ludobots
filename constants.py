@@ -6,7 +6,7 @@ import random
 
 # simulation setup constants
 
-length_sim = 100
+length_sim = 1000
 #backLegSensorValues = numpy.zeros(length_sim)
 #frontLegSensorValues = numpy.zeros(length_sim)
 
