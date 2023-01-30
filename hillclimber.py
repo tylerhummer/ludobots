@@ -12,7 +12,7 @@ class HILL_CLIMBER:
         self.parent.Evaluate()
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
-            print("current generation", currentGeneration)
+            #print('current generation ', currentGeneration)
 
     def Evolve_For_One_Generation(self):
         self.Spawn()
@@ -29,4 +29,7 @@ class HILL_CLIMBER:
        
 
     def Select(self):
-        pass
+        print('parent fitness ', self.parent.fitness)
+        if (self.child.fitness > self.parent.fitness):
+            self.parent = self.child
+        print('parent fitness ', self.parent.fitness, 'child fitness ', self.child.fitness)

@@ -6,7 +6,7 @@ import pybullet as p
 class MOTOR:
     def __init__(self, jointName):
         self.jointName = jointName
-        print(self.jointName)
+        #print(self.jointName)
         self.motor_Values = numpy.zeros(c.length_sim)
         #print(self.motor_Values)
         #self.Prepare_To_Act()

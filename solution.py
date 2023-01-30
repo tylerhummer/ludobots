@@ -13,14 +13,15 @@ class SOLUTION:
         self.height = 1
 
         print(self.weights)
-        
+
     def Evaluate(self):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
         os.system("python simulate.py")
         fitnessFile = open("fitness.txt","r")
-        print(fitnessFile.read())
+        self.fitness = float(fitnessFile.read())
+        print('fitness = ', self.fitness)
         fitnessFile.close()
 
     def Create_World(self):
