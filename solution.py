@@ -14,11 +14,11 @@ class SOLUTION:
 
         print(self.weights)
 
-    def Evaluate(self):
+    def Evaluate(self, directOrGUI):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python simulate.py")
+        os.system("python simulate.py " + directOrGUI)
         fitnessFile = open("fitness.txt","r")
         self.fitness = float(fitnessFile.read())
         print('fitness = ', self.fitness)
