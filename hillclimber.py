@@ -10,20 +10,23 @@ class HILL_CLIMBER:
     
     def Evolve(self):
         self.parent.Evaluate()
-        for currentGeneration in c.numberOfGenerations:
+        for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
+            print("current generation", currentGeneration)
 
     def Evolve_For_One_Generation(self):
         self.Spawn()
         self.Mutate()
-        self.child.Evaulate()
+        self.child.Evaluate()
         self.Select()
 
     def Spawn(self):
         self.child = copy.deepcopy(self.parent)
+        
 
     def Mutate(self):
-        pass
+        self.child.Mutate()
+       
 
     def Select(self):
         pass

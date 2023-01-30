@@ -13,7 +13,7 @@ class SOLUTION:
         self.height = 1
 
         print(self.weights)
-    
+        
     def Evaluate(self):
         self.Create_World()
         self.Create_Body()
@@ -53,3 +53,5 @@ class SOLUTION:
         pyrosim.End()
         return()
 
+    def Mutate(self):
+        self.weights[random.randint(0,2)][random.randint(0,1)] = random.random() * 2 - 1
