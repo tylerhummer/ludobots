@@ -12,7 +12,7 @@ class SOLUTION:
         self.width = 1
         self.height = 1
         self.myID = nextAvailableID
-        print("My ID " + self.myID + "My wieghts ")
+        print("My ID " + str(self.myID) + "My weights ")
         print(self.weights)
 
     def Evaluate(self, directOrGUI):
@@ -59,5 +59,6 @@ class SOLUTION:
         self.weights[random.randint(0,2)][random.randint(0,1)] = random.random() * 2 - 1
 
     
-    def Set_ID(self):
-        pass
+    def Set_ID(self, nextAvailableID):
+        self.myID = nextAvailableID
+        
