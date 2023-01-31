@@ -17,7 +17,7 @@ class SIMULATION:
             self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
-        
+        self.directOrGUI = directOrGUI
         self.world = WORLD()
         self.robot = ROBOT()
         pyrosim.Prepare_To_Simulate(self.robot.robotId)
@@ -37,7 +37,9 @@ class SIMULATION:
             #c.frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.backLeg_targetAngles[i], maxForce=50)
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.frontLeg_targetAngles[i], maxForce=50)
-            time.sleep(1/200)
+            if (self.directOrGUI == "GUI"):
+                time.sleep(1/200)
+            
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()
