@@ -5,13 +5,14 @@ import os
 
 class SOLUTION:
     
-    def __init__ (self):
+    def __init__ (self, nextAvailableID):
         self.weights = numpy.random.rand(3,2)
         self.weights = self.weights * 2 - 1
         self.length = 1
         self.width = 1
         self.height = 1
-
+        self.myID = nextAvailableID
+        print("My ID " + self.myID + "My wieghts ")
         print(self.weights)
 
     def Evaluate(self, directOrGUI):
@@ -56,3 +57,7 @@ class SOLUTION:
 
     def Mutate(self):
         self.weights[random.randint(0,2)][random.randint(0,1)] = random.random() * 2 - 1
+
+    
+    def Set_ID(self):
+        pass
