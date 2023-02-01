@@ -29,7 +29,7 @@ class SIMULATION:
         time_step = 1
         for time_step in range(c.length_sim):
             #print("time step", time_step)
-            #p.stepSimulation()  #comment this out to see the starting configuration of the blocks
+            p.stepSimulation()  #comment this out to see the starting configuration of the blocks
             self.robot.Sense(time_step)
             self.robot.Think()
             self.robot.Act(time_step)
@@ -38,7 +38,7 @@ class SIMULATION:
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.backLeg_targetAngles[i], maxForce=50)
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.frontLeg_targetAngles[i], maxForce=50)
             if (self.directOrGUI == "GUI"):
-                time.sleep(1/200)
+                time.sleep(1/100)
             
 
     def Get_Fitness(self):
