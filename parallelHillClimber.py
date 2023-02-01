@@ -32,8 +32,8 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evolve_For_One_Generation(self):
         self.Spawn()
-        '''
         self.Mutate()
+        '''
         self.child.Evaluate("DIRECT")
         self.Print()
         self.Select()
@@ -48,7 +48,8 @@ class PARALLEL_HILL_CLIMBER:
         
 
     def Mutate(self):
-        self.child.Mutate()
+        for i in self.children:
+            self.children[i].Mutate()
        
 
     def Select(self):
