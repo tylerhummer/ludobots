@@ -13,6 +13,9 @@ class SOLUTION:
         self.length = 1
         self.width = 1
         self.height = 1
+        self.legLength = 1
+        self.legWidth = 0.2
+        self.legDepth = 0.2
         self.myID = nextAvailableID
         print("My ID: " + str(self.myID) + " My weights:")
         print(self.weights)
@@ -51,11 +54,11 @@ class SOLUTION:
 
     def Create_Body(self):
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Cube(name="Torso", pos=[1.5,0,1.5], size=[self.length, self.width, self.height])
-        pyrosim.Send_Joint(name = "Torso_BackLeg", parent = "Torso", child = "BackLeg", type = "revolute", position = [1.0,0,1.0])
+        pyrosim.Send_Cube(name="Torso", pos=[0,0,1], size=[self.length, self.width, self.height])
+        pyrosim.Send_Joint(name = "Torso_BackLeg", parent = "Torso", child = "BackLeg", type = "revolute", position = [10.0,0,1.0])
         pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5], size=[self.length, self.width, self.height])
-        pyrosim.Send_Joint(name = "Torso_FrontLeg", parent = "Torso", child = "FrontLeg", type = "revolute", position = [2.0,0,1.0])
-        pyrosim.Send_Cube(name="FrontLeg", pos=[0.5,0,-0.5], size=[self.length, self.width, self.height])
+        pyrosim.Send_Joint(name = "Torso_FrontLeg", parent = "Torso", child = "FrontLeg", type = "revolute", position = [0,0.5,1.0])
+        pyrosim.Send_Cube(name="FrontLeg", pos=[0,0.5,0], size=[self.legWidth, self.legLength, self.legDepth])
         pyrosim.End()
         return()
 
