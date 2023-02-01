@@ -12,9 +12,11 @@ class ROBOT:
     def __init__(self, solutionID):
         self.sensors = {}
         self.motors = {}
-        self.nn = NEURAL_NETWORK("brain" + str(solutionID) + ".nndf")
+        self.solutionID = solutionID
+        #os.system("del brain" + str(self.solutionID) + ".nndf")
+        self.nn = NEURAL_NETWORK("brain" + str(self.solutionID) + ".nndf")
         self.robotId = p.loadURDF("body.urdf")
-        os.system("del brain" + str(solutionID) + ".nndf")
+        
 
 
     def Prepare_To_Sense(self):
@@ -55,7 +57,9 @@ class ROBOT:
         #print(positionOfLinkZero)
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         #print(xCoordinateOfLinkZero)
-        f = open("fitness.txt", "w")
+        f = open("tmp" + str(self.solutionID) + ".txt", "w")
+        os.system("rename tmp"+str(self.solutionID)+".txt " + "fitness"+str(self.solutionID)+".txt")
+        f = open("fitness" + str(self.solutionID) + ".txt", "w")
         f.write(str(xCoordinateOfLinkZero))
         f.close()
         

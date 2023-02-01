@@ -23,4 +23,4 @@ backLeg_targetAngles = (backLeg_amplitude)*(numpy.sin(backLeg_frequency * x_vals
 frontLeg_targetAngles = (frontLeg_amplitude)*(numpy.sin(frontLeg_frequency * x_vals + frontLeg_phaseOffset))
 
 numberOfGenerations = 10
-populationSize = 2
+populationSize = 10
