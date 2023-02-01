@@ -38,10 +38,7 @@ class PARALLEL_HILL_CLIMBER:
         self.Mutate()
         self.Evaluate(self.children)
         self.Print()
-        '''
-        
         self.Select()
-        '''
 
     def Spawn(self):
         self.children = {}
@@ -58,8 +55,9 @@ class PARALLEL_HILL_CLIMBER:
 
     def Select(self):
         #print('parent fitness ', self.parent.fitness)
-        if (self.child.fitness < self.parent.fitness):
-            self.parent = self.child
+        for i in self.parents:
+            if (self.children[i].fitness < self.parents[i].fitness):
+                self.parents[i] = self.children[i]
 
 
     def Print(self):
