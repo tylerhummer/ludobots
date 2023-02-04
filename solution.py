@@ -49,6 +49,7 @@ class SOLUTION:
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
+        pyrosim.Send_Sphere(name="bowlingBall", pos=[-3,+3,0.5], size=[0.5])
         pyrosim.End()
         return
 
@@ -114,4 +115,10 @@ class SOLUTION:
         
     
     def Create_Tetrahedron(self):
-        pass
+        pyrosim.Start_URDF("body.urdf")
+        pyrosim.Send_Cylinder(name="BaseA", pos=[0,0,1], size=[self.length, self.width, self.height])
+        pyrosim.Send_Joint(name = "BaseA_BaseB", parent = "Torso", child = "BackLeg", type = "revolute", position = [0,-0.5,1.0], jointAxis = "1 0 0")
+        pyrosim.Send_Cube(name="BaseB", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth])
+        pyrosim.Send_Joint(name = "BackLeg_LowerBackLeg", parent = "BackLeg", child = "LowerBackLeg", type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
+        pyrosim.Send_Cube(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength])
+
