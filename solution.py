@@ -55,26 +55,26 @@ class SOLUTION:
 
     def Create_Body(self):
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Cube(name="Torso", pos=[0,0,1], size=[self.length, self.width, self.height])
+        pyrosim.Send_Link(name="Torso", pos=[0,0,1], size=[self.length, self.width, self.height], objectType="box")
         pyrosim.Send_Joint(name = "Torso_BackLeg", parent = "Torso", child = "BackLeg", type = "revolute", position = [0,-0.5,1.0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="BackLeg", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth])
+        pyrosim.Send_Link(name="BackLeg", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box")
         pyrosim.Send_Joint(name = "BackLeg_LowerBackLeg", parent = "BackLeg", child = "LowerBackLeg", type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength])
+        pyrosim.Send_Link(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
 
         pyrosim.Send_Joint(name = "Torso_FrontLeg", parent = "Torso", child = "FrontLeg", type = "revolute", position = [0,0.5,1.0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="FrontLeg", pos=[0,0.5,0], size=[self.legWidth, self.legLength, self.legDepth])
+        pyrosim.Send_Link(name="FrontLeg", pos=[0,0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box")
         pyrosim.Send_Joint(name = "FrontLeg_LowerFrontLeg", parent = "FrontLeg", child = "LowerFrontLeg", type = "revolute", position = [0,1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="LowerFrontLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength])
+        pyrosim.Send_Link(name="LowerFrontLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
 
         pyrosim.Send_Joint(name = "Torso_RightLeg", parent = "Torso", child = "RightLeg", type = "revolute", position = [0.5,0,1.0], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="RightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth])
+        pyrosim.Send_Link(name="RightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box")
         pyrosim.Send_Joint(name = "RightLeg_LowerRightLeg", parent = "RightLeg", child = "LowerRightLeg", type = "revolute", position = [1,0,0], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="LowerRightLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength])
+        pyrosim.Send_Link(name="LowerRightLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
 
         pyrosim.Send_Joint(name = "Torso_LeftLeg", parent = "Torso", child = "LeftLeg", type = "revolute", position = [-0.5,0,1.0], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="LeftLeg", pos=[-0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth])
+        pyrosim.Send_Link(name="LeftLeg", pos=[-0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box")
         pyrosim.Send_Joint(name = "LeftLeg_LowerLeftLeg", parent = "LeftLeg", child = "LowerLeftLeg", type = "revolute", position = [-1,0,0], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="LowerLeftLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength])
+        pyrosim.Send_Link(name="LowerLeftLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
 
         pyrosim.End()
         return()
@@ -116,9 +116,9 @@ class SOLUTION:
     
     def Create_Tetrahedron(self):
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Cylinder(name="BaseA", pos=[0,0,1], size=[self.length, self.width, self.height])
+        pyrosim.Send_Link(name="BaseA", pos=[0,0,1], size=[self.length, self.width, self.height], objectType="box")
         pyrosim.Send_Joint(name = "BaseA_BaseB", parent = "Torso", child = "BackLeg", type = "revolute", position = [0,-0.5,1.0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="BaseB", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth])
+        pyrosim.Send_Link(name="BaseB", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box")
         pyrosim.Send_Joint(name = "BackLeg_LowerBackLeg", parent = "BackLeg", child = "LowerBackLeg", type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength])
+        pyrosim.Send_Link(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
 

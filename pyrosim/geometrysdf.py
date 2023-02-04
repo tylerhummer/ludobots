@@ -22,11 +22,11 @@ class GEOMETRY_SDF:
             
             sizeString = str(size[0])
 
-            self.string2 = ' <sphere>'
+            self.string2 = '   <sphere>'
 
-            self.string3 = ' <radius>' + sizeString + '</radius>'
+            self.string3 = '      <radius>' + sizeString + '</radius>'
 
-            self.string4 = ' </sphere>'
+            self.string4 = '   </sphere>'
 
 
         self.string5 = '</geometry>'
