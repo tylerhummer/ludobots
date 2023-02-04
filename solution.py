@@ -112,3 +112,6 @@ class SOLUTION:
     def Set_ID(self, nextAvailableID):
         self.myID = nextAvailableID
         
+    
+    def Create_Tetrahedron(self):
+        pass

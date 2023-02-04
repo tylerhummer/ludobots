@@ -51,16 +51,16 @@ class ROBOT:
         #self.nn.Print()
 
     def Get_Fitness(self):
-        stateOfLinkZero = p.getLinkState(self.robotId,0)
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         #print(stateOfLinkZero)
-        positionOfLinkZero = stateOfLinkZero[0]
+        basePosition = basePositionAndOrientation[0]
         #print(positionOfLinkZero)
-        xCoordinateOfLinkZero = positionOfLinkZero[0]
+        xPosition = basePosition[0]
         #print(xCoordinateOfLinkZero)
         f = open("tmp" + str(self.solutionID) + ".txt", "w")
         os.system("rename tmp"+str(self.solutionID)+".txt " + "fitness"+str(self.solutionID)+".txt")
         f = open("fitness" + str(self.solutionID) + ".txt", "w")
-        f.write(str(xCoordinateOfLinkZero))
+        f.write(str(xPosition))
         f.close()
         
 # Neurons Step 30ish
