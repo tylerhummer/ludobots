@@ -138,7 +138,7 @@ def Send_Cube(name="default", pos=[0,0,0],size=[1,1,1],mass=1.0):
     Send_Link(name, pos, size, "box",mass)
 
 def Send_Cylinder(name="default", pos=[0,0,0],size=[1,1],mass=1.0):
-    Send_Link(name, pos, size, "cylinder",mass)
+    Send_Link(name, pos, size, "cylinder", mass)
 
 def Send_Sphere(name="default", pos=[0,0,0], size=[0.5],mass=1.0):
     Send_Link(name, pos, size,"sphere",mass)

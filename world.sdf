@@ -15,16 +15,16 @@
             </inertial>
             <collision>
                 <geometry>
-                 <sphere>
-                 <radius>0.5</radius>
-                 </sphere>
+                   <sphere>
+                      <radius>0.5</radius>
+                   </sphere>
                 </geometry>
             </collision>
             <visual>
                 <geometry>
-                 <sphere>
-                 <radius>0.5</radius>
-                 </sphere>
+                   <sphere>
+                      <radius>0.5</radius>
+                   </sphere>
                 </geometry>
             </visual>
         </link>

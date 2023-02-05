@@ -2,7 +2,7 @@
     <link name="Torso">
         <inertial>
             <origin xyz="0 0 1" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -31,7 +31,7 @@
     <link name="BackLeg">
         <inertial>
             <origin xyz="0 -0.5 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -60,7 +60,7 @@
     <link name="LowerBackLeg">
         <inertial>
             <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -89,7 +89,7 @@
     <link name="FrontLeg">
         <inertial>
             <origin xyz="0 0.5 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -118,7 +118,7 @@
     <link name="LowerFrontLeg">
         <inertial>
             <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -147,7 +147,7 @@
     <link name="RightLeg">
         <inertial>
             <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -176,7 +176,7 @@
     <link name="LowerRightLeg">
         <inertial>
             <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -205,7 +205,7 @@
     <link name="LeftLeg">
         <inertial>
             <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -234,7 +234,7 @@
     <link name="LowerLeftLeg">
         <inertial>
             <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>

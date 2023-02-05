@@ -24,6 +24,8 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
+        #self.Create_Tetrahedron()
+        #self.Create_Tetrahedron_Brain()
         os.system("start /B python simulate.py " + str(directOrGUI) + " " + str(self.myID))
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
             time.sleep(0.1)
@@ -34,6 +36,8 @@ class SOLUTION:
 
     def Start_Simulation(self, directOrGUI):
         self.Create_World()
+        #self.Create_Tetrahedron()
+        #self.Create_Tetrahedron_Brain
         self.Create_Body()
         self.Create_Brain()
         os.system("start /B python simulate.py " + str(directOrGUI) + " " + str(self.myID))
@@ -55,26 +59,26 @@ class SOLUTION:
 
     def Create_Body(self):
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Link(name="Torso", pos=[0,0,1], size=[self.length, self.width, self.height], objectType="box")
+        pyrosim.Send_Link(name="Torso", pos=[0,0,1], size=[self.length, self.width, self.height], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "Torso_BackLeg", parent = "Torso", child = "BackLeg", type = "revolute", position = [0,-0.5,1.0], jointAxis = "1 0 0")
-        pyrosim.Send_Link(name="BackLeg", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box")
+        pyrosim.Send_Link(name="BackLeg", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "BackLeg_LowerBackLeg", parent = "BackLeg", child = "LowerBackLeg", type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Link(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
+        pyrosim.Send_Link(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
         pyrosim.Send_Joint(name = "Torso_FrontLeg", parent = "Torso", child = "FrontLeg", type = "revolute", position = [0,0.5,1.0], jointAxis = "1 0 0")
-        pyrosim.Send_Link(name="FrontLeg", pos=[0,0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box")
+        pyrosim.Send_Link(name="FrontLeg", pos=[0,0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "FrontLeg_LowerFrontLeg", parent = "FrontLeg", child = "LowerFrontLeg", type = "revolute", position = [0,1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Link(name="LowerFrontLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
+        pyrosim.Send_Link(name="LowerFrontLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
         pyrosim.Send_Joint(name = "Torso_RightLeg", parent = "Torso", child = "RightLeg", type = "revolute", position = [0.5,0,1.0], jointAxis = "0 1 0")
-        pyrosim.Send_Link(name="RightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box")
+        pyrosim.Send_Link(name="RightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "RightLeg_LowerRightLeg", parent = "RightLeg", child = "LowerRightLeg", type = "revolute", position = [1,0,0], jointAxis = "0 1 0")
-        pyrosim.Send_Link(name="LowerRightLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
+        pyrosim.Send_Link(name="LowerRightLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
         pyrosim.Send_Joint(name = "Torso_LeftLeg", parent = "Torso", child = "LeftLeg", type = "revolute", position = [-0.5,0,1.0], jointAxis = "0 1 0")
-        pyrosim.Send_Link(name="LeftLeg", pos=[-0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box")
+        pyrosim.Send_Link(name="LeftLeg", pos=[-0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "LeftLeg_LowerLeftLeg", parent = "LeftLeg", child = "LowerLeftLeg", type = "revolute", position = [-1,0,0], jointAxis = "0 1 0")
-        pyrosim.Send_Link(name="LowerLeftLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
+        pyrosim.Send_Link(name="LowerLeftLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
         pyrosim.End()
         return()
@@ -116,9 +120,24 @@ class SOLUTION:
     
     def Create_Tetrahedron(self):
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Link(name="BaseA", pos=[0,0,1], size=[self.length, self.width, self.height], objectType="box")
+        pyrosim.Send_Link(name="Center", pos=[0,0,1], size=[0.5], objectType="sphere", mass=1.0)
+        '''
         pyrosim.Send_Joint(name = "BaseA_BaseB", parent = "Torso", child = "BackLeg", type = "revolute", position = [0,-0.5,1.0], jointAxis = "1 0 0")
         pyrosim.Send_Link(name="BaseB", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box")
         pyrosim.Send_Joint(name = "BackLeg_LowerBackLeg", parent = "BackLeg", child = "LowerBackLeg", type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
-        pyrosim.Send_Link(name="LowerBackLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
+        pyrosim.Send_Link(name="BaseC", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box")
+        '''
+        pyrosim.End()
+        return()
 
+    def Create_Tetrahedron_Brain(self):
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+        pyrosim.Send_Sensor_Neuron(name = 0, linkName = "Center")
+
+
+        for currentRow in range(c.numSensorNeurons):
+            for currentColumn in range(c.numMotorNeurons):
+                pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = (currentColumn+c.numSensorNeurons), weight = self.weights[currentRow][currentColumn])
+        
+        pyrosim.End()
+        return()
