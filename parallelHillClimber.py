@@ -79,7 +79,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evaluate(self, solutions):
         for i in range(0, c.populationSize):
-            solutions[i].Start_Simulation("GUI")
+            solutions[i].Start_Simulation("DIRECT") #change DIRECT to GUI to see body orientation... set number of gens and pop to 1 to not crash computer
 
         for i in range(0, c.populationSize):
             solutions[i].Wait_For_Simulation_To_End()

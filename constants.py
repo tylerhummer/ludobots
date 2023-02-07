@@ -27,5 +27,23 @@ motorJointRange = 0.2
 numberOfGenerations = 1
 populationSize = 1
 
-numSensorNeurons = 9
-numMotorNeurons = 8
+#numSensorNeurons = 10
+#numMotorNeurons = 9
+
+
+#Crab Constants
+numSensorNeurons = 19
+numMotorNeurons = 18
+
+#Crab Body Dimension Stuff
+crabTorsoLength = 1.5
+crabTorsoWidth = 1
+crabTorsoDepth = 1
+
+crabLegLength = 1
+crabLegWidth = 0.2
+crabLegDepth = 0.2
+
+crabClawLength = 0.4
+crabClawWidth = 0.1
+crabClawDepth = 0.1

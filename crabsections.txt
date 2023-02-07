@@ -1,0 +1,15 @@
+<visual>
+            <origin xyz="0 0 1" rpy="1.5 0 3.2"/>
+            <geometry>
+                <mesh filename="Crab18.obj" scale="5 5 5"/>
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <geometry>
+                <box size="2 1 1" />
+            </geometry>
+        </collision>

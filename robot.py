@@ -9,13 +9,14 @@ import os
 
 
 class ROBOT:
-    def __init__(self, solutionID):
+    def __init__(self, solutionID, world):
         self.sensors = {}
         self.motors = {}
         self.solutionID = solutionID
         #os.system("del brain" + str(self.solutionID) + ".nndf")
         self.nn = NEURAL_NETWORK("brain" + str(self.solutionID) + ".nndf")
         self.robotId = p.loadURDF("body.urdf")
+        self.world = world
         
 
 
@@ -52,15 +53,20 @@ class ROBOT:
 
     def Get_Fitness(self):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        ballPositionAndOrientation = p.getBasePositionAndOrientation(self.world.objects[0])
         #print(stateOfLinkZero)
         basePosition = basePositionAndOrientation[0]
+        ballPosition = ballPositionAndOrientation[0]
         #print(positionOfLinkZero)
         xPosition = basePosition[0]
+        ballHeight = ballPosition[2]
         #print(xCoordinateOfLinkZero)
+        #fitness = xPosition
+        fitness = ballHeight
         f = open("tmp" + str(self.solutionID) + ".txt", "w")
         os.system("rename tmp"+str(self.solutionID)+".txt " + "fitness"+str(self.solutionID)+".txt")
         f = open("fitness" + str(self.solutionID) + ".txt", "w")
-        f.write(str(xPosition))
+        f.write(str(fitness))
         f.close()
         
 # Neurons Step 30ish

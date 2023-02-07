@@ -14,17 +14,11 @@ class GEOMETRY_URDF:
 
             self.string2 = '    <box size="' + sizeString + '" />'
 
-        elif (objectType == "cylinder"):
-
-            sizeString = str(size[0] + " " + str(size[1]))
-
-            self.string2 = '    <cylinder size="' + sizeString + '" />'
-
-        else:
+        elif (objectType == "sphere"):
 
             sizeString = str(size[0])
 
-            self.string2 = '    <sphere size="' + sizeString + '" />'
+            self.string2 = '    <sphere radius="' + sizeString + '" />'
 
         self.string3 = '</geometry>'
 

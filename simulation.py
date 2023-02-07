@@ -19,7 +19,7 @@ class SIMULATION:
         p.setGravity(0,0,-9.8)
         self.directOrGUI = directOrGUI
         self.world = WORLD()
-        self.robot = ROBOT(solutionID)
+        self.robot = ROBOT(solutionID, self.world)
         pyrosim.Prepare_To_Simulate(self.robot.robotId)
         self.robot.Prepare_To_Sense()
         self.robot.Prepare_To_Act()
@@ -29,7 +29,7 @@ class SIMULATION:
         time_step = 1
         for time_step in range(c.length_sim):
             #print("time step", time_step)
-            #p.stepSimulation()  #comment this out to see the starting configuration of the blocks
+            p.stepSimulation()  #comment this out to see the starting configuration of the blocks
             self.robot.Sense(time_step)
             self.robot.Think()
             self.robot.Act(time_step)

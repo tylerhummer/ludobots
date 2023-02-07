@@ -4,5 +4,5 @@ import pyrosim.pyrosim as pyrosim
 
 class WORLD:
     def __init__(self):
-        p.loadSDF("world.sdf")
+        self.objects = p.loadSDF("world.sdf")
         self.planeId = p.loadURDF("plane.urdf")
