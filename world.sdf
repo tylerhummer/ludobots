@@ -1,6 +1,6 @@
 <sdf>
     <model name="BallA">
-        <pose>-0.25 0.25 4 0 0 0 </pose>
+        <pose>-0.25 0.25 2.5 0 0 0 </pose>
         <link name="BallA">
             <inertial>
                 <mass>1.0</mass>
@@ -30,7 +30,7 @@
         </link>
     </model>
     <model name="BallB">
-        <pose>-0.5 0.5 6 0 0 0 </pose>
+        <pose>-0.5 0.5 3.5 0 0 0 </pose>
         <link name="BallB">
             <inertial>
                 <mass>1.0</mass>
@@ -60,7 +60,7 @@
         </link>
     </model>
     <model name="BallC">
-        <pose>-0.75 0.25 6 0 0 0 </pose>
+        <pose>-0.75 0.25 4.5 0 0 0 </pose>
         <link name="BallC">
             <inertial>
                 <mass>1.0</mass>
@@ -90,7 +90,7 @@
         </link>
     </model>
     <model name="BallD">
-        <pose>0.25 0.5 7 0 0 0 </pose>
+        <pose>0.25 0.5 3.5 0 0 0 </pose>
         <link name="BallD">
             <inertial>
                 <mass>1.0</mass>

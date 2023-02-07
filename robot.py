@@ -62,16 +62,16 @@ class ROBOT:
         ballAPosition = ballAPositionAndOrientation[0]
         ballBPosition = ballBPositionAndOrientation[0]
         ballCPosition = ballCPositionAndOrientation[0]
-        ballDPosition = ballCPositionAndOrientation[0]
+        ballDPosition = ballDPositionAndOrientation[0]
         #print(positionOfLinkZero)
-        xPosition = basePosition[0]
+        yPosition = basePosition[1]
         ballAHeight = ballAPosition[2]
         ballBHeight = ballBPosition[2]
         ballCHeight = ballCPosition[2]
-        ballDHeight = ballCPosition[2]
+        ballDHeight = ballDPosition[2]
         #print(xCoordinateOfLinkZero)
         #fitness = xPosition
-        fitness = ballAHeight + ballBHeight + ballCHeight + ballDHeight + xPosition
+        fitness = ballAHeight + ballBHeight + ballCHeight + ballDHeight + (5 * yPosition)
         f = open("tmp" + str(self.solutionID) + ".txt", "w")
         os.system("rename tmp"+str(self.solutionID)+".txt " + "fitness"+str(self.solutionID)+".txt")
         f = open("fitness" + str(self.solutionID) + ".txt", "w")

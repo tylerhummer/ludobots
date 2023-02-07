@@ -6,7 +6,7 @@ import random
 
 # simulation setup constants
 
-length_sim = 1000
+length_sim = 500
 #backLegSensorValues = numpy.zeros(length_sim)
 #frontLegSensorValues = numpy.zeros(length_sim)
 
@@ -24,8 +24,8 @@ frontLeg_targetAngles = (frontLeg_amplitude)*(numpy.sin(frontLeg_frequency * x_v
 
 motorJointRange = 0.1
 
-numberOfGenerations = 2
-populationSize = 2
+numberOfGenerations = 1
+populationSize = 1
 
 #numSensorNeurons = 10
 #numMotorNeurons = 9

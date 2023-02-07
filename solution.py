@@ -54,10 +54,10 @@ class SOLUTION:
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Sphere(name="BallA", pos=[-0.25,+0.25,4], size=[0.25])
-        pyrosim.Send_Sphere(name="BallB", pos=[-0.5,+0.5,6], size=[0.25])
-        pyrosim.Send_Sphere(name="BallC", pos=[-0.75,+0.25,6], size=[0.25])
-        pyrosim.Send_Sphere(name="BallD", pos=[+0.25,+0.5,7], size=[0.25])
+        pyrosim.Send_Sphere(name="BallA", pos=[-0.25,+0.25,2.5], size=[0.25])
+        pyrosim.Send_Sphere(name="BallB", pos=[-0.5,+0.5,3.5], size=[0.25])
+        pyrosim.Send_Sphere(name="BallC", pos=[-0.75,+0.25,4.5], size=[0.25])
+        pyrosim.Send_Sphere(name="BallD", pos=[+0.25,+0.5,3.5], size=[0.25])
         #pyrosim.Send_Cube(name="bowlingPin", pos=[-3,-2,0.5], size=[self.legWidth,self.legDepth,self.legLength])
         pyrosim.End()
         return
@@ -126,32 +126,32 @@ class SOLUTION:
     def Create_Crab(self):
         pyrosim.Start_URDF("body1.urdf")
         pyrosim.Send_Link(name="Torso", pos=[0,0,1], size=[c.crabTorsoDepth, c.crabTorsoLength, c.crabTorsoWidth], objectType="box", mass=10.0)
-        pyrosim.Send_Joint(name = "Torso_FrontRightLeg", parent = "Torso", child = "FrontRightLeg", type = "revolute", position = [0.5,0.5,1.0], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_FrontRightLeg", parent = "Torso", child = "FrontRightLeg", type = "revolute", position = [0.5,0.5,1.0], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="FrontRightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "FrontRightLeg_LowerFrontRightLeg", parent = "FrontRightLeg", child = "LowerFrontRightLeg", type = "revolute", position = [1,0,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="LowerFrontRightLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
-        pyrosim.Send_Joint(name = "Torso_FrontLeftLeg", parent = "Torso", child = "FrontLeftLeg", type = "revolute", position = [-0.5,0.5,1.0], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_FrontLeftLeg", parent = "Torso", child = "FrontLeftLeg", type = "revolute", position = [-0.5,0.5,1.0], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="FrontLeftLeg", pos=[-0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "FrontLeftLeg_LowerFrontLeftLeg", parent = "FrontLeftLeg", child = "LowerFrontLeftLeg", type = "revolute", position = [-1,0,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="LowerFrontLeftLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
-        pyrosim.Send_Joint(name = "Torso_MiddleRightLeg", parent = "Torso", child = "MiddleRightLeg", type = "revolute", position = [0.5,0,1.0], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_MiddleRightLeg", parent = "Torso", child = "MiddleRightLeg", type = "revolute", position = [0.5,0,1.0], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="MiddleRightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "MiddleRightLeg_LowerMiddleRightLeg", parent = "MiddleRightLeg", child = "LowerMiddleRightLeg", type = "revolute", position = [1,0,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="LowerMiddleRightLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
-        pyrosim.Send_Joint(name = "Torso_MiddleLeftLeg", parent = "Torso", child = "MiddleLeftLeg", type = "revolute", position = [-0.5,0,1.0], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_MiddleLeftLeg", parent = "Torso", child = "MiddleLeftLeg", type = "revolute", position = [-0.5,0,1.0], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="MiddleLeftLeg", pos=[-0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "MiddleLeftLeg_LowerMiddleLeftLeg", parent = "MiddleLeftLeg", child = "LowerMiddleLeftLeg", type = "revolute", position = [-1,0,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="LowerMiddleLeftLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
-        pyrosim.Send_Joint(name = "Torso_BackRightLeg", parent = "Torso", child = "BackRightLeg", type = "revolute", position = [0.5,-0.5,1.0], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_BackRightLeg", parent = "Torso", child = "BackRightLeg", type = "revolute", position = [0.5,-0.5,1.0], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="BackRightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "BackRightLeg_LowerBackRightLeg", parent = "BackRightLeg", child = "LowerBackRightLeg", type = "revolute", position = [1,0,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="LowerBackRightLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
 
-        pyrosim.Send_Joint(name = "Torso_BackLeftLeg", parent = "Torso", child = "BackLeftLeg", type = "revolute", position = [-0.5,-0.5,1.0], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_BackLeftLeg", parent = "Torso", child = "BackLeftLeg", type = "revolute", position = [-0.5,-0.5,1.0], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="BackLeftLeg", pos=[-0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
         pyrosim.Send_Joint(name = "BackLeftLeg_LowerBackLeftLeg", parent = "BackLeftLeg", child = "LowerBackLeftLeg", type = "revolute", position = [-1,0,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="LowerBackLeftLeg", pos=[0,0,-0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=1.0)
