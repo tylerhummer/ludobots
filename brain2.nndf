@@ -371,7 +371,7 @@
     <synapse sourceNeuronName = "18" targetNeuronName = "27" weight = "0.30272185134423935" />
     <synapse sourceNeuronName = "18" targetNeuronName = "28" weight = "-0.5206874904704679" />
     <synapse sourceNeuronName = "18" targetNeuronName = "29" weight = "0.4619301662120139" />
-    <synapse sourceNeuronName = "18" targetNeuronName = "30" weight = "0.7452072681801265" />
+    <synapse sourceNeuronName = "18" targetNeuronName = "30" weight = "-0.026370143529073298" />
     <synapse sourceNeuronName = "18" targetNeuronName = "31" weight = "0.5770741654566427" />
     <synapse sourceNeuronName = "18" targetNeuronName = "32" weight = "-0.8039886612786562" />
     <synapse sourceNeuronName = "18" targetNeuronName = "33" weight = "0.45496332130743555" />

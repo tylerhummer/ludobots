@@ -54,7 +54,10 @@ class SOLUTION:
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Sphere(name="bowlingBall", pos=[-0.5,+0.5,4], size=[0.25])
+        pyrosim.Send_Sphere(name="BallA", pos=[-0.25,+0.25,4], size=[0.25])
+        pyrosim.Send_Sphere(name="BallB", pos=[-0.5,+0.5,6], size=[0.25])
+        pyrosim.Send_Sphere(name="BallC", pos=[-0.75,+0.25,6], size=[0.25])
+        pyrosim.Send_Sphere(name="BallD", pos=[+0.25,+0.5,7], size=[0.25])
         #pyrosim.Send_Cube(name="bowlingPin", pos=[-3,-2,0.5], size=[self.legWidth,self.legDepth,self.legLength])
         pyrosim.End()
         return
@@ -121,7 +124,7 @@ class SOLUTION:
         
     
     def Create_Crab(self):
-        pyrosim.Start_URDF("body.urdf")
+        pyrosim.Start_URDF("body1.urdf")
         pyrosim.Send_Link(name="Torso", pos=[0,0,1], size=[c.crabTorsoDepth, c.crabTorsoLength, c.crabTorsoWidth], objectType="box", mass=10.0)
         pyrosim.Send_Joint(name = "Torso_FrontRightLeg", parent = "Torso", child = "FrontRightLeg", type = "revolute", position = [0.5,0.5,1.0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="FrontRightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
@@ -158,14 +161,14 @@ class SOLUTION:
         pyrosim.Send_Joint(name = "FrontRightArm_FrontRightClaw", parent = "FrontRightArm", child = "FrontRightClaw", type = "revolute", position = [0,1,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="FrontRightClaw", pos=[0,0,0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=0.25)
         pyrosim.Send_Joint(name = "FrontRightClaw_FrontRightClawTip", parent = "FrontRightClaw", child = "FrontRightClawTip", type = "revolute", position = [0,0,1], jointAxis = "1 0 0")
-        pyrosim.Send_Link(name="FrontRightClawTip", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box", mass=0.25)
+        pyrosim.Send_Link(name="FrontRightClawTip", pos=[0,-0.2,0], size=[c.crabClawWidth, c.crabClawLength, c.crabClawDepth], objectType="box", mass=0.25)
 
         pyrosim.Send_Joint(name = "Torso_FrontLeftArm", parent = "Torso", child = "FrontLeftArm", type = "spherical", position = [-0.25 ,0.5,1.25], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="FrontLeftArm", pos=[0,0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box", mass=0.5)
         pyrosim.Send_Joint(name = "FrontLeftArm_FrontLeftClaw", parent = "FrontLeftArm", child = "FrontLeftClaw", type = "revolute", position = [0,1,0], jointAxis = "0 1 0")
         pyrosim.Send_Link(name="FrontLeftClaw", pos=[0,0,0.5], size=[self.legWidth, self.legDepth, self.legLength], objectType="box", mass=0.25)
         pyrosim.Send_Joint(name = "FrontLeftClaw_FrontLeftClawTip", parent = "FrontLeftClaw", child = "FrontLeftClawTip", type = "revolute", position = [0,0,1], jointAxis = "1 0 0")
-        pyrosim.Send_Link(name="FrontLeftClawTip", pos=[0,-0.5,0], size=[self.legWidth, self.legLength, self.legDepth], objectType="box", mass=0.25)
+        pyrosim.Send_Link(name="FrontLeftClawTip", pos=[0,-0.2,0], size=[c.crabClawWidth, c.crabClawLength, c.crabClawDepth], objectType="box", mass=0.25)
         
         '''
         pyrosim.Send_Joint(name = "Torso_FrontLeg", parent = "Torso", child = "FrontLeg", type = "revolute", position = [0,0.5,1.0], jointAxis = "1 0 0")

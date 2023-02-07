@@ -53,16 +53,25 @@ class ROBOT:
 
     def Get_Fitness(self):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
-        ballPositionAndOrientation = p.getBasePositionAndOrientation(self.world.objects[0])
+        ballAPositionAndOrientation = p.getBasePositionAndOrientation(self.world.objects[0])
+        ballBPositionAndOrientation = p.getBasePositionAndOrientation(self.world.objects[1])
+        ballCPositionAndOrientation = p.getBasePositionAndOrientation(self.world.objects[2])
+        ballDPositionAndOrientation = p.getBasePositionAndOrientation(self.world.objects[3])
         #print(stateOfLinkZero)
         basePosition = basePositionAndOrientation[0]
-        ballPosition = ballPositionAndOrientation[0]
+        ballAPosition = ballAPositionAndOrientation[0]
+        ballBPosition = ballBPositionAndOrientation[0]
+        ballCPosition = ballCPositionAndOrientation[0]
+        ballDPosition = ballCPositionAndOrientation[0]
         #print(positionOfLinkZero)
         xPosition = basePosition[0]
-        ballHeight = ballPosition[2]
+        ballAHeight = ballAPosition[2]
+        ballBHeight = ballBPosition[2]
+        ballCHeight = ballCPosition[2]
+        ballDHeight = ballCPosition[2]
         #print(xCoordinateOfLinkZero)
         #fitness = xPosition
-        fitness = ballHeight
+        fitness = ballAHeight + ballBHeight + ballCHeight + ballDHeight + xPosition
         f = open("tmp" + str(self.solutionID) + ".txt", "w")
         os.system("rename tmp"+str(self.solutionID)+".txt " + "fitness"+str(self.solutionID)+".txt")
         f = open("fitness" + str(self.solutionID) + ".txt", "w")

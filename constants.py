@@ -22,10 +22,10 @@ x_vals = numpy.linspace(0, 2*numpy.pi, length_sim)
 backLeg_targetAngles = (backLeg_amplitude)*(numpy.sin(backLeg_frequency * x_vals + backLeg_phaseOffset))
 frontLeg_targetAngles = (frontLeg_amplitude)*(numpy.sin(frontLeg_frequency * x_vals + frontLeg_phaseOffset))
 
-motorJointRange = 0.2
+motorJointRange = 0.1
 
-numberOfGenerations = 1
-populationSize = 1
+numberOfGenerations = 2
+populationSize = 2
 
 #numSensorNeurons = 10
 #numMotorNeurons = 9
