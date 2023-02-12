@@ -51,16 +51,16 @@ class SOLUTION:
                 pyrosim.Send_Link(name=str(linkName), pos=[0, 0, 2], size=[length, width, height],
                            objectType="box", mass=(length*width*height))
                 pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
-                           type="revolute", position=[length/2, width/2, 2], jointAxis= "1 0 0")
+                           type="revolute", position=[(length/2),0, 2], jointAxis= "0 1 0")
 
             #create the other randomly placed joints in a snake pattern
             else:
-                pyrosim.Send_Link(name=str(linkName), pos=[length/2, width/2, height/2], size=[length,width,height],
+                pyrosim.Send_Link(name=str(linkName), pos=[length/2, 0, 0], size=[length,width,height],
                             objectType="box", mass=(length*width*height))
                 pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
-                            type="revolute", position=[length,width/2,height/2], jointAxis="1 0 0")
+                            type="revolute", position=[length,0,0], jointAxis="0 1 0")
         
-        pyrosim.Send_Link(name=str(rSC.numLinks), pos=[length/2, width/2, height/2], size=[length,width,height],
+        pyrosim.Send_Link(name=str(rSC.numLinks), pos=[length/2, 0, 0], size=[random.uniform(0.5, 1),random.uniform(0.5, 1),random.uniform(0.5, 1)],
                             objectType="box", mass=(length*width*height))
         
         pyrosim.End()

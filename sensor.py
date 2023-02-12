@@ -1,6 +1,6 @@
 import pyrosim.pyrosim as pyrosim
 import numpy
-import constants as c
+import randomSnakeConstants as c
 
 
 class SENSOR:
