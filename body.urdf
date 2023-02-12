@@ -1,545 +1,313 @@
 <robot name = "robot">
-    <link name="Torso">
+    <link name="0">
         <inertial>
-            <origin xyz="0 0 1" rpy="0 0 0"/>
-            <mass value="10.0" />
+            <origin xyz="0 0 2" rpy="0 0 0"/>
+            <mass value="0.4011870902957314" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0 0 1" rpy="1.5 0 3.2"/>
+            <origin xyz="0 0 2" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="Crab18.obj" scale="5 5 5"/>
+                <box size="0.6726930718560755 0.6258901893297387 0.9528660432296472" />
             </geometry>
             <material name="King Crab">
                 <color rgba="0.8 0.496 0.516 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <origin xyz="0 0 2" rpy="0 0 0"/>
             <geometry>
-                <box size="1 1.5 1" />
+                <box size="0.6726930718560755 0.6258901893297387 0.9528660432296472" />
             </geometry>
         </collision>
     </link>
-    <joint name="Torso_FrontRightLeg" type="revolute">
-       <parent link="Torso"/>
-       <child  link="FrontRightLeg"/>
-       <origin rpy="0 0 0" xyz="0.5 0.5 1.0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="FrontRightLeg">
-        <inertial>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="FrontRightLeg_LowerFrontRightLeg" type="revolute">
-       <parent link="FrontRightLeg"/>
-       <child  link="LowerFrontRightLeg"/>
-       <origin rpy="0 0 0" xyz="1 0 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="LowerFrontRightLeg">
-        <inertial>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="Torso_FrontLeftLeg" type="revolute">
-       <parent link="Torso"/>
-       <child  link="FrontLeftLeg"/>
-       <origin rpy="0 0 0" xyz="-0.5 0.5 1.0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="FrontLeftLeg">
-        <inertial>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="FrontLeftLeg_LowerFrontLeftLeg" type="revolute">
-       <parent link="FrontLeftLeg"/>
-       <child  link="LowerFrontLeftLeg"/>
-       <origin rpy="0 0 0" xyz="-1 0 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="LowerFrontLeftLeg">
-        <inertial>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="Torso_MiddleRightLeg" type="revolute">
-       <parent link="Torso"/>
-       <child  link="MiddleRightLeg"/>
-       <origin rpy="0 0 0" xyz="0.5 0 1.0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="MiddleRightLeg">
-        <inertial>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="MiddleRightLeg_LowerMiddleRightLeg" type="revolute">
-       <parent link="MiddleRightLeg"/>
-       <child  link="LowerMiddleRightLeg"/>
-       <origin rpy="0 0 0" xyz="1 0 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="LowerMiddleRightLeg">
-        <inertial>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="Torso_MiddleLeftLeg" type="revolute">
-       <parent link="Torso"/>
-       <child  link="MiddleLeftLeg"/>
-       <origin rpy="0 0 0" xyz="-0.5 0 1.0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="MiddleLeftLeg">
-        <inertial>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="MiddleLeftLeg_LowerMiddleLeftLeg" type="revolute">
-       <parent link="MiddleLeftLeg"/>
-       <child  link="LowerMiddleLeftLeg"/>
-       <origin rpy="0 0 0" xyz="-1 0 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="LowerMiddleLeftLeg">
-        <inertial>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="Torso_BackRightLeg" type="revolute">
-       <parent link="Torso"/>
-       <child  link="BackRightLeg"/>
-       <origin rpy="0 0 0" xyz="0.5 -0.5 1.0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="BackRightLeg">
-        <inertial>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="BackRightLeg_LowerBackRightLeg" type="revolute">
-       <parent link="BackRightLeg"/>
-       <child  link="LowerBackRightLeg"/>
-       <origin rpy="0 0 0" xyz="1 0 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="LowerBackRightLeg">
-        <inertial>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="Torso_BackLeftLeg" type="revolute">
-       <parent link="Torso"/>
-       <child  link="BackLeftLeg"/>
-       <origin rpy="0 0 0" xyz="-0.5 -0.5 1.0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="BackLeftLeg">
-        <inertial>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="-0.5 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="1 0.2 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="BackLeftLeg_LowerBackLeftLeg" type="revolute">
-       <parent link="BackLeftLeg"/>
-       <child  link="LowerBackLeftLeg"/>
-       <origin rpy="0 0 0" xyz="-1 0 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="LowerBackLeftLeg">
-        <inertial>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="Torso_FrontRightArm" type="revolute">
-       <parent link="Torso"/>
-       <child  link="FrontRightArm"/>
-       <origin rpy="0 0 0" xyz="0.25 0.5 1.25" />
-       <axis xyz="0 0 1"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="FrontRightArm">
-        <inertial>
-            <origin xyz="0 0.5 0" rpy="0 0 0"/>
-            <mass value="0.5" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0.5 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 1 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0.5 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 1 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="FrontRightArm_FrontRightClaw" type="revolute">
-       <parent link="FrontRightArm"/>
-       <child  link="FrontRightClaw"/>
-       <origin rpy="0 0 0" xyz="0 1 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="FrontRightClaw">
-        <inertial>
-            <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <mass value="0.25" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="FrontRightClaw_FrontRightClawTip" type="revolute">
-       <parent link="FrontRightClaw"/>
-       <child  link="FrontRightClawTip"/>
-       <origin rpy="0 0 0" xyz="0 0 1" />
+    <joint name="0_1" type="revolute">
+       <parent link="0"/>
+       <child  link="1"/>
+       <origin rpy="0 0 0" xyz="0.33634653592803776 0.31294509466486936 2" />
        <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
-    <link name="FrontRightClawTip">
+    <link name="1">
         <inertial>
-            <origin xyz="0 -0.2 0" rpy="0 0 0"/>
-            <mass value="0.25" />
+            <origin xyz="0.3538995386126114 0.4002407024406651 0.4744817559157646" rpy="0 0 0"/>
+            <mass value="0.5376637462592151" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0 -0.2 0" rpy="0 0 0"/>
+            <origin xyz="0.3538995386126114 0.4002407024406651 0.4744817559157646" rpy="0 0 0"/>
             <geometry>
-                <box size="0.1 0.4 0.1" />
+                <box size="0.7077990772252228 0.8004814048813302 0.9489635118315292" />
             </geometry>
             <material name="King Crab">
                 <color rgba="0.8 0.496 0.516 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0 -0.2 0" rpy="0 0 0"/>
+            <origin xyz="0.3538995386126114 0.4002407024406651 0.4744817559157646" rpy="0 0 0"/>
             <geometry>
-                <box size="0.1 0.4 0.1" />
+                <box size="0.7077990772252228 0.8004814048813302 0.9489635118315292" />
             </geometry>
         </collision>
     </link>
-    <joint name="Torso_FrontLeftArm" type="spherical">
-       <parent link="Torso"/>
-       <child  link="FrontLeftArm"/>
-       <origin rpy="0 0 0" xyz="-0.25 0.5 1.25" />
-       <axis xyz="0 0 1"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="FrontLeftArm">
-        <inertial>
-            <origin xyz="0 0.5 0" rpy="0 0 0"/>
-            <mass value="0.5" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0.5 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 1 0.2" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0.5 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 1 0.2" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="FrontLeftArm_FrontLeftClaw" type="revolute">
-       <parent link="FrontLeftArm"/>
-       <child  link="FrontLeftClaw"/>
-       <origin rpy="0 0 0" xyz="0 1 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="FrontLeftClaw">
-        <inertial>
-            <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <mass value="0.25" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.2 0.2 1" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="FrontLeftClaw_FrontLeftClawTip" type="revolute">
-       <parent link="FrontLeftClaw"/>
-       <child  link="FrontLeftClawTip"/>
-       <origin rpy="0 0 0" xyz="0 0 1" />
+    <joint name="1_2" type="revolute">
+       <parent link="1"/>
+       <child  link="2"/>
+       <origin rpy="0 0 0" xyz="0.7077990772252228 0.4002407024406651 0.4744817559157646" />
        <axis xyz="1 0 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
-    <link name="FrontLeftClawTip">
+    <link name="2">
         <inertial>
-            <origin xyz="0 -0.2 0" rpy="0 0 0"/>
-            <mass value="0.25" />
+            <origin xyz="0.33874592337643394 0.27718605613376096 0.47479675945880684" rpy="0 0 0"/>
+            <mass value="0.3566507896058561" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0 -0.2 0" rpy="0 0 0"/>
+            <origin xyz="0.33874592337643394 0.27718605613376096 0.47479675945880684" rpy="0 0 0"/>
             <geometry>
-                <box size="0.1 0.4 0.1" />
+                <box size="0.6774918467528679 0.5543721122675219 0.9495935189176137" />
             </geometry>
             <material name="King Crab">
                 <color rgba="0.8 0.496 0.516 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0 -0.2 0" rpy="0 0 0"/>
+            <origin xyz="0.33874592337643394 0.27718605613376096 0.47479675945880684" rpy="0 0 0"/>
             <geometry>
-                <box size="0.1 0.4 0.1" />
+                <box size="0.6774918467528679 0.5543721122675219 0.9495935189176137" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="2_3" type="revolute">
+       <parent link="2"/>
+       <child  link="3"/>
+       <origin rpy="0 0 0" xyz="0.6774918467528679 0.27718605613376096 0.47479675945880684" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="3">
+        <inertial>
+            <origin xyz="0.3443424623232648 0.4689252598316078 0.2986052305643683" rpy="0 0 0"/>
+            <mass value="0.3857283915084767" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.3443424623232648 0.4689252598316078 0.2986052305643683" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.6886849246465296 0.9378505196632156 0.5972104611287365" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.3443424623232648 0.4689252598316078 0.2986052305643683" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.6886849246465296 0.9378505196632156 0.5972104611287365" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="3_4" type="revolute">
+       <parent link="3"/>
+       <child  link="4"/>
+       <origin rpy="0 0 0" xyz="0.6886849246465296 0.4689252598316078 0.2986052305643683" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="4">
+        <inertial>
+            <origin xyz="0.49014126730572655 0.25040338302632525 0.46531338307650416" rpy="0 0 0"/>
+            <mass value="0.4568745767982778" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.49014126730572655 0.25040338302632525 0.46531338307650416" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.9802825346114531 0.5008067660526505 0.9306267661530083" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.49014126730572655 0.25040338302632525 0.46531338307650416" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.9802825346114531 0.5008067660526505 0.9306267661530083" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="4_5" type="revolute">
+       <parent link="4"/>
+       <child  link="5"/>
+       <origin rpy="0 0 0" xyz="0.9802825346114531 0.25040338302632525 0.46531338307650416" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="5">
+        <inertial>
+            <origin xyz="0.29614623734248735 0.3902739741942296 0.3579688426473041" rpy="0 0 0"/>
+            <mass value="0.33098706711007536" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.29614623734248735 0.3902739741942296 0.3579688426473041" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5922924746849747 0.7805479483884592 0.7159376852946082" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.29614623734248735 0.3902739741942296 0.3579688426473041" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5922924746849747 0.7805479483884592 0.7159376852946082" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="5_6" type="revolute">
+       <parent link="5"/>
+       <child  link="6"/>
+       <origin rpy="0 0 0" xyz="0.5922924746849747 0.3902739741942296 0.3579688426473041" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="6">
+        <inertial>
+            <origin xyz="0.4241687309377361 0.4037228436325078 0.31231385555216584" rpy="0 0 0"/>
+            <mass value="0.42786150274574986" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.4241687309377361 0.4037228436325078 0.31231385555216584" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.8483374618754722 0.8074456872650156 0.6246277111043317" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.4241687309377361 0.4037228436325078 0.31231385555216584" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.8483374618754722 0.8074456872650156 0.6246277111043317" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="6_7" type="revolute">
+       <parent link="6"/>
+       <child  link="7"/>
+       <origin rpy="0 0 0" xyz="0.8483374618754722 0.4037228436325078 0.31231385555216584" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="7">
+        <inertial>
+            <origin xyz="0.29678387097822956 0.3045370901498524 0.2763395066602429" rpy="0 0 0"/>
+            <mass value="0.1998082673115593" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.29678387097822956 0.3045370901498524 0.2763395066602429" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5935677419564591 0.6090741802997048 0.5526790133204857" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.29678387097822956 0.3045370901498524 0.2763395066602429" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5935677419564591 0.6090741802997048 0.5526790133204857" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="7_8" type="revolute">
+       <parent link="7"/>
+       <child  link="8"/>
+       <origin rpy="0 0 0" xyz="0.5935677419564591 0.3045370901498524 0.2763395066602429" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="8">
+        <inertial>
+            <origin xyz="0.4088799882983547 0.4426041384890841 0.41702134189469287" rpy="0 0 0"/>
+            <mass value="0.6037534067659668" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.4088799882983547 0.4426041384890841 0.41702134189469287" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.8177599765967094 0.8852082769781682 0.8340426837893857" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.4088799882983547 0.4426041384890841 0.41702134189469287" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.8177599765967094 0.8852082769781682 0.8340426837893857" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="8_9" type="revolute">
+       <parent link="8"/>
+       <child  link="9"/>
+       <origin rpy="0 0 0" xyz="0.8177599765967094 0.4426041384890841 0.41702134189469287" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="9">
+        <inertial>
+            <origin xyz="0.2751840071241378 0.3399894659299951 0.3175471270250517" rpy="0 0 0"/>
+            <mass value="0.2376768190900014" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.2751840071241378 0.3399894659299951 0.3175471270250517" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5503680142482756 0.6799789318599903 0.6350942540501034" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.2751840071241378 0.3399894659299951 0.3175471270250517" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5503680142482756 0.6799789318599903 0.6350942540501034" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="9_10" type="revolute">
+       <parent link="9"/>
+       <child  link="10"/>
+       <origin rpy="0 0 0" xyz="0.5503680142482756 0.3399894659299951 0.3175471270250517" />
+       <axis xyz="1 0 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="10">
+        <inertial>
+            <origin xyz="0.2751840071241378 0.3399894659299951 0.3175471270250517" rpy="0 0 0"/>
+            <mass value="0.2376768190900014" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.2751840071241378 0.3399894659299951 0.3175471270250517" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5503680142482756 0.6799789318599903 0.6350942540501034" />
+            </geometry>
+            <material name="King Crab">
+                <color rgba="0.8 0.496 0.516 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.2751840071241378 0.3399894659299951 0.3175471270250517" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.5503680142482756 0.6799789318599903 0.6350942540501034" />
             </geometry>
         </collision>
     </link>

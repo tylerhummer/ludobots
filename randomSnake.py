@@ -40,7 +40,7 @@ class SOLUTION:
         
 
         #create the other randomly placed joints in a snake pattern
-        for linkName in rSC.numLinks:
+        for linkName in range(rSC.numLinks):
             length = random.uniform(0.5, 1)
             width = random.uniform(0.5, 1)
             height = random.uniform(0.5, 1)
@@ -59,11 +59,18 @@ class SOLUTION:
                             objectType="box", mass=(length*width*height))
                 pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
                             type="revolute", position=[length,width/2,height/2], jointAxis="1 0 0")
-
+        
+        pyrosim.Send_Link(name=str(rSC.numLinks), pos=[length/2, width/2, height/2], size=[length,width,height],
+                            objectType="box", mass=(length*width*height))
+        
+        pyrosim.End()
+        return()
 
     def Create_Snake_Brain(self):
-        pass
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
 
+        pyrosim.End()
+        return()
 
 
 

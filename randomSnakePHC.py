@@ -1,6 +1,6 @@
-from solution import SOLUTION 
-from simulation import SIMULATION
-import constants as c
+from randomSnake import SOLUTION 
+from randomSnakeSimulation import SIMULATION
+import randomSnakeConstants as c
 import copy
 import os
 
