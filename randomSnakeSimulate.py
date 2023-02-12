@@ -2,7 +2,7 @@ import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import numpy
 import constants as c
-from simulation import SIMULATION
+from randomSnakeSimulation import SIMULATION
 import sys
 
 

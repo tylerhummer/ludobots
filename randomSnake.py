@@ -21,7 +21,13 @@ class SOLUTION:
         self.Create_Snake()
         self.Create_Snake_Brain()
 
-
+        os.system("start /B python randomSnakeSimulate.py " + str(directOrGUI) + " " + str(self.myID))
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.1)
+        fitnessFile = open("fitness" + str(self.myID) + ".txt","r")
+        self.fitness = float(fitnessFile.read())
+        print('fitness = ', self.fitness)
+        fitnessFile.close()
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
@@ -29,10 +35,36 @@ class SOLUTION:
         return
 
     def Create_Snake(self):
-        pass
+        pyrosim.Start_URDF("body.urdf")
+
+        
+
+        #create the other randomly placed joints in a snake pattern
+        for linkName in rSC.numLinks:
+            length = random.uniform(0.5, 1)
+            width = random.uniform(0.5, 1)
+            height = random.uniform(0.5, 1)
+            sensor = random.randint(0, 1)
+
+            #create the seed link and joint
+            if linkName == 0:
+                pyrosim.Send_Link(name=str(linkName), pos=[0, 0, 2], size=[length, width, height],
+                           objectType="box", mass=(length*width*height))
+                pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
+                           type="revolute", position=[length/2, width/2, 2], jointAxis= "1 0 0")
+
+            #create the other randomly placed joints in a snake pattern
+            else:
+                pyrosim.Send_Link(name=str(linkName), pos=[length/2, width/2, height/2], size=[length,width,height],
+                            objectType="box", mass=(length*width*height))
+                pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
+                            type="revolute", position=[length,width/2,height/2], jointAxis="1 0 0")
+
 
     def Create_Snake_Brain(self):
         pass
+
+
 
 
     def Start_Simulation(self, directOrGUI):
@@ -42,7 +74,12 @@ class SOLUTION:
         os.system("start /B python randomSnakeSimulate.py " + str(directOrGUI) + " " + str(self.myID))
 
     def Wait_For_Simulation_To_End(self):
-        pass
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.1)
+        fitnessFile = open("fitness" + str(self.myID) + ".txt","r")
+        self.fitness = float(fitnessFile.read())
+        print('fitness = ', self.fitness)
+        fitnessFile.close()
 
     def Mutate_Brain(self):
         pass
@@ -51,5 +88,5 @@ class SOLUTION:
         pass
 
     def Set_ID(self, nextAvailableID):
-        pass
+        self.myID = nextAvailableID
 

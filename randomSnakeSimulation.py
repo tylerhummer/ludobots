@@ -1,10 +1,10 @@
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
-import constants as c
+import randomSnakeConstants as rSC
 import time
 from world import WORLD
-from robot import ROBOT
+from randomSnakeRobot import ROBOT
 
 
 
@@ -27,7 +27,7 @@ class SIMULATION:
 
     def Run(self):
         time_step = 1
-        for time_step in range(c.length_sim):
+        for time_step in range(rSC.length_sim):
             #print("time step", time_step)
             p.stepSimulation()  #comment this out to see the starting configuration of the blocks
             self.robot.Sense(time_step)
