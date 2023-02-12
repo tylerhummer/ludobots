@@ -2,312 +2,283 @@
     <link name="0">
         <inertial>
             <origin xyz="0 0 2" rpy="0 0 0"/>
-            <mass value="0.4672596107694953" />
+            <mass value="0.4211287577313499" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
             <origin xyz="0 0 2" rpy="0 0 0"/>
             <geometry>
-                <box size="0.9292989366401918 0.663674262784018 0.7576137124535618" />
+                <box size="0.8210303078274538 0.7455850092929881 0.6879526415482403" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0 0 1.0 1.0"/>
             </material>
         </visual>
         <collision>
             <origin xyz="0 0 2" rpy="0 0 0"/>
             <geometry>
-                <box size="0.9292989366401918 0.663674262784018 0.7576137124535618" />
+                <box size="0.8210303078274538 0.7455850092929881 0.6879526415482403" />
             </geometry>
         </collision>
     </link>
     <joint name="0_1" type="revolute">
        <parent link="0"/>
        <child  link="1"/>
-       <origin rpy="0 0 0" xyz="0.4646494683200959 0 2" />
+       <origin rpy="0 0 0" xyz="0.4105151539137269 0 2" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="1">
         <inertial>
-            <origin xyz="0.4371532974234039 0 0" rpy="0 0 0"/>
-            <mass value="0.5021633367710349" />
+            <origin xyz="0.32810088854069275 0 0" rpy="0 0 0"/>
+            <mass value="0.400487946168033" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.4371532974234039 0 0" rpy="0 0 0"/>
+            <origin xyz="0.32810088854069275 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.8743065948468078 0.5984717369022319 0.9597046558439345" />
+                <box size="0.6562017770813855 0.7807922384217889 0.7816576085172144" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0 0 1.0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.4371532974234039 0 0" rpy="0 0 0"/>
+            <origin xyz="0.32810088854069275 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.8743065948468078 0.5984717369022319 0.9597046558439345" />
+                <box size="0.6562017770813855 0.7807922384217889 0.7816576085172144" />
             </geometry>
         </collision>
     </link>
     <joint name="1_2" type="revolute">
        <parent link="1"/>
        <child  link="2"/>
-       <origin rpy="0 0 0" xyz="0.8743065948468078 0 0" />
+       <origin rpy="0 0 0" xyz="0.6562017770813855 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="2">
         <inertial>
-            <origin xyz="0.4691612367384329 0 0" rpy="0 0 0"/>
-            <mass value="0.45762855897014004" />
+            <origin xyz="0.38386909476136244 0 0" rpy="0 0 0"/>
+            <mass value="0.44729053807861646" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.4691612367384329 0 0" rpy="0 0 0"/>
+            <origin xyz="0.38386909476136244 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.9383224734768658 0.7805730380209224 0.6248092568147998" />
+                <box size="0.7677381895227249 0.7569796517458066 0.7696483835748011" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="Sensor">
+                <color rgba="0 1.0 0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.4691612367384329 0 0" rpy="0 0 0"/>
+            <origin xyz="0.38386909476136244 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.9383224734768658 0.7805730380209224 0.6248092568147998" />
+                <box size="0.7677381895227249 0.7569796517458066 0.7696483835748011" />
             </geometry>
         </collision>
     </link>
     <joint name="2_3" type="revolute">
        <parent link="2"/>
        <child  link="3"/>
-       <origin rpy="0 0 0" xyz="0.9383224734768658 0 0" />
+       <origin rpy="0 0 0" xyz="0.7677381895227249 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="3">
         <inertial>
-            <origin xyz="0.3566355198623945 0 0" rpy="0 0 0"/>
-            <mass value="0.32955771775091053" />
+            <origin xyz="0.28832285864775065 0 0" rpy="0 0 0"/>
+            <mass value="0.40909059326921615" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.3566355198623945 0 0" rpy="0 0 0"/>
+            <origin xyz="0.28832285864775065 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.713271039724789 0.6260484033050087 0.7380214480064176" />
+                <box size="0.5766457172955013 0.8326799283499904 0.8519857407573186" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0 0 1.0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.3566355198623945 0 0" rpy="0 0 0"/>
+            <origin xyz="0.28832285864775065 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.713271039724789 0.6260484033050087 0.7380214480064176" />
+                <box size="0.5766457172955013 0.8326799283499904 0.8519857407573186" />
             </geometry>
         </collision>
     </link>
     <joint name="3_4" type="revolute">
        <parent link="3"/>
        <child  link="4"/>
-       <origin rpy="0 0 0" xyz="0.713271039724789 0 0" />
+       <origin rpy="0 0 0" xyz="0.5766457172955013 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="4">
         <inertial>
-            <origin xyz="0.4469031205936164 0 0" rpy="0 0 0"/>
-            <mass value="0.5566125293256085" />
+            <origin xyz="0.3445360507941603 0 0" rpy="0 0 0"/>
+            <mass value="0.3173228672078326" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.4469031205936164 0 0" rpy="0 0 0"/>
+            <origin xyz="0.3445360507941603 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.8938062411872328 0.9066323051661747 0.6868761001619588" />
+                <box size="0.6890721015883206 0.886544597443434 0.5194408674789079" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="Sensor">
+                <color rgba="0 1.0 0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.4469031205936164 0 0" rpy="0 0 0"/>
+            <origin xyz="0.3445360507941603 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.8938062411872328 0.9066323051661747 0.6868761001619588" />
+                <box size="0.6890721015883206 0.886544597443434 0.5194408674789079" />
             </geometry>
         </collision>
     </link>
     <joint name="4_5" type="revolute">
        <parent link="4"/>
        <child  link="5"/>
-       <origin rpy="0 0 0" xyz="0.8938062411872328 0 0" />
+       <origin rpy="0 0 0" xyz="0.6890721015883206 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="5">
         <inertial>
-            <origin xyz="0.3542315269134464 0 0" rpy="0 0 0"/>
-            <mass value="0.4678393086257596" />
+            <origin xyz="0.31035011789832495 0 0" rpy="0 0 0"/>
+            <mass value="0.5388043085012417" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.3542315269134464 0 0" rpy="0 0 0"/>
+            <origin xyz="0.31035011789832495 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.7084630538268928 0.8853996778352109 0.7458305056092329" />
+                <box size="0.6207002357966499 0.9742568072642841 0.8909958896368388" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="Sensor">
+                <color rgba="0 1.0 0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.3542315269134464 0 0" rpy="0 0 0"/>
+            <origin xyz="0.31035011789832495 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.7084630538268928 0.8853996778352109 0.7458305056092329" />
+                <box size="0.6207002357966499 0.9742568072642841 0.8909958896368388" />
             </geometry>
         </collision>
     </link>
     <joint name="5_6" type="revolute">
        <parent link="5"/>
        <child  link="6"/>
-       <origin rpy="0 0 0" xyz="0.7084630538268928 0 0" />
+       <origin rpy="0 0 0" xyz="0.6207002357966499 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="6">
         <inertial>
-            <origin xyz="0.4507249478833059 0 0" rpy="0 0 0"/>
-            <mass value="0.4131154881980677" />
+            <origin xyz="0.41055485637919686 0 0" rpy="0 0 0"/>
+            <mass value="0.6933760147810616" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.4507249478833059 0 0" rpy="0 0 0"/>
+            <origin xyz="0.41055485637919686 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.9014498957666118 0.5700869075522839 0.8038755457230675" />
+                <box size="0.8211097127583937 0.9965482373348644 0.8473626159440635" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="Sensor">
+                <color rgba="0 1.0 0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.4507249478833059 0 0" rpy="0 0 0"/>
+            <origin xyz="0.41055485637919686 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.9014498957666118 0.5700869075522839 0.8038755457230675" />
+                <box size="0.8211097127583937 0.9965482373348644 0.8473626159440635" />
             </geometry>
         </collision>
     </link>
     <joint name="6_7" type="revolute">
        <parent link="6"/>
        <child  link="7"/>
-       <origin rpy="0 0 0" xyz="0.9014498957666118 0 0" />
+       <origin rpy="0 0 0" xyz="0.8211097127583937 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="7">
         <inertial>
-            <origin xyz="0.43428407329960117 0 0" rpy="0 0 0"/>
-            <mass value="0.38373327332077056" />
+            <origin xyz="0.26491102223845353 0 0" rpy="0 0 0"/>
+            <mass value="0.22648027261892342" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.43428407329960117 0 0" rpy="0 0 0"/>
+            <origin xyz="0.26491102223845353 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.8685681465992023 0.7944575418546873 0.556102526093637" />
+                <box size="0.5298220444769071 0.7537801742678627 0.5670947730669256" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0 0 1.0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.43428407329960117 0 0" rpy="0 0 0"/>
+            <origin xyz="0.26491102223845353 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.8685681465992023 0.7944575418546873 0.556102526093637" />
+                <box size="0.5298220444769071 0.7537801742678627 0.5670947730669256" />
             </geometry>
         </collision>
     </link>
     <joint name="7_8" type="revolute">
        <parent link="7"/>
        <child  link="8"/>
-       <origin rpy="0 0 0" xyz="0.8685681465992023 0 0" />
+       <origin rpy="0 0 0" xyz="0.5298220444769071 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="8">
         <inertial>
-            <origin xyz="0.333650274042877 0 0" rpy="0 0 0"/>
-            <mass value="0.35286575562695904" />
+            <origin xyz="0.35345079394123535 0 0" rpy="0 0 0"/>
+            <mass value="0.4176997655307733" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.333650274042877 0 0" rpy="0 0 0"/>
+            <origin xyz="0.35345079394123535 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.667300548085754 0.8007254442223648 0.6603959527791257" />
+                <box size="0.7069015878824707 0.8580852799770098 0.6886123737926949" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="Sensor">
+                <color rgba="0 1.0 0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.333650274042877 0 0" rpy="0 0 0"/>
+            <origin xyz="0.35345079394123535 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.667300548085754 0.8007254442223648 0.6603959527791257" />
+                <box size="0.7069015878824707 0.8580852799770098 0.6886123737926949" />
             </geometry>
         </collision>
     </link>
     <joint name="8_9" type="revolute">
        <parent link="8"/>
        <child  link="9"/>
-       <origin rpy="0 0 0" xyz="0.667300548085754 0 0" />
+       <origin rpy="0 0 0" xyz="0.7069015878824707 0 0" />
        <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
     <link name="9">
         <inertial>
-            <origin xyz="0.27030044622696336 0 0" rpy="0 0 0"/>
-            <mass value="0.33013335478447003" />
+            <origin xyz="0.35345079394123535 0 0" rpy="0 0 0"/>
+            <mass value="0.4176997655307733" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-            <origin xyz="0.27030044622696336 0 0" rpy="0 0 0"/>
+            <origin xyz="0.35345079394123535 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.5406008924539267 0.746609620739366 0.8179355134138371" />
+                <box size="0.623677745124974 0.8335674252747175 0.6256993476108382" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="Sensor">
+                <color rgba="0 1.0 0 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0.27030044622696336 0 0" rpy="0 0 0"/>
+            <origin xyz="0.35345079394123535 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.5406008924539267 0.746609620739366 0.8179355134138371" />
-            </geometry>
-        </collision>
-    </link>
-    <joint name="9_10" type="revolute">
-       <parent link="9"/>
-       <child  link="10"/>
-       <origin rpy="0 0 0" xyz="0.5406008924539267 0 0" />
-       <axis xyz="0 1 0"/>
-       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
-    </joint>
-    <link name="10">
-        <inertial>
-            <origin xyz="0.27030044622696336 0 0" rpy="0 0 0"/>
-            <mass value="0.33013335478447003" />
-            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
-        </inertial>
-        <visual>
-            <origin xyz="0.27030044622696336 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.5413929930518149 0.6536675773044348 0.7346559873777192" />
-            </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.27030044622696336 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.5413929930518149 0.6536675773044348 0.7346559873777192" />
+                <box size="0.623677745124974 0.8335674252747175 0.6256993476108382" />
             </geometry>
         </collision>
     </link>
