@@ -15,7 +15,7 @@ class PARALLEL_HILL_CLIMBER:
         for i in range(0,c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
-    
+        self.Evaluate(self.parents) #Added this line here which is the same as Evolve below to skip the evolve step!
     def Evolve(self):
         
         self.Evaluate(self.parents)
