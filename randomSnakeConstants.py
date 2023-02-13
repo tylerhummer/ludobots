@@ -6,12 +6,12 @@ import random
 
 length_sim = 500
 
-motorJointRange = 0.1
+motorJointRange = 0.3
 
 numberOfGenerations = 1
 populationSize = 1
 
 numLinks = random.randint(3,10)
-numSensorNeurons = int(numLinks*random.random())
-numMotorNeurons = numLinks - 1
+numSensorNeurons = int(numLinks*random.uniform(0.25,0.75))
+numMotorNeurons = numLinks
 

@@ -4,7 +4,8 @@ import random
 import os
 import time
 import randomSnakeConstants as rSC
-from randomSnakeBody import snakeBody
+from randomSnakeBody import SnakeBody
+from randomSnakeBrain import snakeBrain
 
 class SOLUTION:
 
@@ -12,9 +13,14 @@ class SOLUTION:
         self.weights = numpy.random.rand(rSC.numSensorNeurons, rSC.numMotorNeurons)
         self.weights = self.weights * 2 - 1
 
+        print(rSC.numSensorNeurons)
+        print(rSC.numMotorNeurons)
+        
+
         self.myID = nextAvailableID
         print("My ID: " + str(self.myID) + " My weights:")
         print(self.weights)
+        print(self.weights[rSC.numSensorNeurons-1][rSC.numMotorNeurons-1])
 
     
     def Evaluate(self, directOrGUI):
@@ -39,39 +45,38 @@ class SOLUTION:
         self.body = {}
         pyrosim.Start_URDF("body.urdf")
 
-        #create the other randomly placed joints in a snake pattern
         for linkName in range(rSC.numLinks):
-            #length = random.uniform(0.5, 1)
-            #width = random.uniform(0.5, 1)
-            #height = random.uniform(0.5, 1)
-            #sensor = random.randint(0, 1)
+            self.body[linkName] = SnakeBody(linkName)
 
-            self.body[linkName] = snakeBody(linkName)
-
-            #create the seed link and joint
-            '''if linkName == 0:
-                pyrosim.Send_Link(name=str(linkName), pos=[0, 0, 2], size=[self.bodyParts[linkName].length, self.bodyParts[linkName].width, self.bodyParts[linkName].height],
-                           objectType="box", mass=(length*width*height), sense=sensor)
-                pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
-                           type="revolute", position=[(length/2),0, 2], jointAxis= "0 1 0")
-
-            #create the other randomly placed joints in a snake pattern
-            else:
-                pyrosim.Send_Link(name=str(linkName), pos=[length/2, 0, 0], size=[length,width,height],
-                            objectType="box", mass=(length*width*height), sense=sensor)
-                pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
-                            type="revolute", position=[length,0,0], jointAxis="0 1 0")
-        
-        pyrosim.Send_Link(name=str(rSC.numLinks), pos=[length/2, 0, 0], size=[random.uniform(0.5, 1),random.uniform(0.5, 1),random.uniform(0.5, 1)],
-                            objectType="box", mass=(length*width*height), sense=sensor)
-        '''
         pyrosim.End()
+        print(self.body)
         return()
 
 
     def Create_Snake_Brain(self):
-        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+        self.neuronNum = 0
+        self.sensorNum = 0
+        self.motorNum = 0
+        print(rSC.numLinks)
 
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+        
+        for part in self.body:
+            if self.body[part].sense == 1:
+                pyrosim.Send_Sensor_Neuron(name = self.neuronNum, linkName = str(self.body[part].linkName))
+                self.neuronNum += 1
+                self.sensorNum += 1
+
+        for part in self.body:
+            if part < rSC.numLinks-1:
+                pyrosim.Send_Motor_Neuron(name = self.neuronNum, jointName = str(self.body[part].jointName))
+                self.neuronNum += 1
+                self.motorNum += 1
+            
+        for currentRow in range(rSC.numSensorNeurons):
+            for currentColumn in range(rSC.numMotorNeurons-1):
+                pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = (currentColumn+self.sensorNum), weight = self.weights[currentRow][currentColumn])
+        
         pyrosim.End()
         return()
 
