@@ -4,6 +4,7 @@ import random
 import os
 import time
 import randomSnakeConstants as rSC
+from randomSnakeBody import snakeBody
 
 class SOLUTION:
 
@@ -35,20 +36,21 @@ class SOLUTION:
         return
 
     def Create_Snake(self):
+        self.body = {}
         pyrosim.Start_URDF("body.urdf")
-
-        
 
         #create the other randomly placed joints in a snake pattern
         for linkName in range(rSC.numLinks):
-            length = random.uniform(0.5, 1)
-            width = random.uniform(0.5, 1)
-            height = random.uniform(0.5, 1)
-            sensor = random.randint(0, 1)
+            #length = random.uniform(0.5, 1)
+            #width = random.uniform(0.5, 1)
+            #height = random.uniform(0.5, 1)
+            #sensor = random.randint(0, 1)
+
+            self.body[linkName] = snakeBody(linkName)
 
             #create the seed link and joint
-            if linkName == 0:
-                pyrosim.Send_Link(name=str(linkName), pos=[0, 0, 2], size=[length, width, height],
+            '''if linkName == 0:
+                pyrosim.Send_Link(name=str(linkName), pos=[0, 0, 2], size=[self.bodyParts[linkName].length, self.bodyParts[linkName].width, self.bodyParts[linkName].height],
                            objectType="box", mass=(length*width*height), sense=sensor)
                 pyrosim.Send_Joint(name=str(linkName)+"_"+str(linkName+1), parent=str(linkName), child=str(linkName+1),
                            type="revolute", position=[(length/2),0, 2], jointAxis= "0 1 0")
@@ -62,9 +64,10 @@ class SOLUTION:
         
         pyrosim.Send_Link(name=str(rSC.numLinks), pos=[length/2, 0, 0], size=[random.uniform(0.5, 1),random.uniform(0.5, 1),random.uniform(0.5, 1)],
                             objectType="box", mass=(length*width*height), sense=sensor)
-        
+        '''
         pyrosim.End()
         return()
+
 
     def Create_Snake_Brain(self):
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")

@@ -4,7 +4,7 @@ import random
 
 # simulation setup constants
 
-length_sim = 1000
+length_sim = 500
 
 motorJointRange = 0.1
 
