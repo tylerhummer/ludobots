@@ -22,9 +22,9 @@ class SnakeBody:
         
 
     def LinkDimensions (self):
-        self.length = random.uniform(0.5, 1)
-        self.width = random.uniform(0.5, 1)
-        self.height = random.uniform(0.5, 1)
+        self.length = random.uniform(0.25, 1.25)
+        self.width = random.uniform(0.25, 1.25)
+        self.height = random.uniform(0.25, 1.25)
 
     def Sensing (self):
         self.sense = random.randint(0, 1)

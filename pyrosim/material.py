@@ -10,14 +10,14 @@ class MATERIAL:
         
             self.string1 = '<material name="No Sensor">'
 
-            self.string2 = '    <color rgba="0 0 1.0 1.0"/>'
+            self.string2 = '    <color rgba="0.184 0.553 0.933 1.0"/>'
 
             self.string3 = '</material>'
 
         else:
             self.string1 = '<material name="Sensor">'
 
-            self.string2 = '    <color rgba="0 1.0 0 1.0"/>'
+            self.string2 = '    <color rgba="0.239 0.875 0.282 1.0"/>'
 
             self.string3 = '</material>'
 
