@@ -11,9 +11,35 @@
 - The Ludobots portion of the course concluded with with creation of a quadruped. Following that, were my personal creations - the Catching Crab, and the Random Snake (which will eventually conclude in a final project, but is a necessary milestone).
 
 
-## The Catching Crab
+## Random Snake... but in 3D
 
-![crab](catchingcrab.gif)
+- For the *Random Snake*, the links and joints are created as follows -->
+
+![body](bodybuilding.jpg)
+*Process shown in 2D, but carried out in 3D*
+
+The following are randomly selected:
+1. The number of links in the body
+2. The size of each link
+3. The face which the next link will attach to
+4. The joint orientation between links
+5. Whether a link is a sensor (green) or not (blue)
+
+
+This is the random snake! ![snake](randomsnake.gif) 
+
+This is the random snake in 3D! ![3dsnake](randomSnake3Dgif.gif) 
+
+- To run the Random Snake:
+    - Download the repository
+    - Be sure to include all files that contain randomSnake______.py
+    - Run **randomSnakeGO.py** to create the random body and begin the simulation
+    - Note that the behavior itself is not yet evolved, so it will just spit out a random body and wiggle around!
+
+- You can see the full videos **with music** here [(random snake)](https://youtu.be/kGDtNsKyQPk) and here [(random snake in 3D)](https://youtu.be/jUNL5z_xI_Q)
+
+
+## The Catching Crab
 
 - To run the Catching Crab:
     - Download the repository
@@ -25,14 +51,4 @@
     - I apologize in advance for the poor video quality!
 
 
-## Random Snake
 
-![snake](randomsnake.gif)
-
-- To run the Random Snake:
-    - Download the repository
-    - Be sure to include all files that contain randomSnake______.py
-    - Run **randomSnakeGO.py** to create the random body and begin the simulation
-    - Note that the behavior itself is not yet evolved, so it will just spit out a random body and wiggle around!
-
-- You can see the full video **with music** [here](https://youtu.be/kGDtNsKyQPk)

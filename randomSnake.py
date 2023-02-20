@@ -41,12 +41,25 @@ class SOLUTION:
         pyrosim.End()
         return
 
+    def Make_Snake(self):
+        self.snake = {}
+
+        for linkName in range(rSC.numLinks):
+            pass
+
     def Create_Snake(self):
         self.body = {}
         pyrosim.Start_URDF("body.urdf")
 
         for linkName in range(rSC.numLinks):
-            self.body[linkName] = SnakeBody(linkName)
+            if linkName == 0:
+                prevFace = 0
+                self.body[linkName] = SnakeBody(linkName,prevFace,0)
+
+            else:
+                prevFace = self.body[linkName-1].faceNum
+                prevDimensions = self.body[linkName-1].dimensions
+                self.body[linkName] = SnakeBody(linkName,prevFace,prevDimensions)
 
         pyrosim.End()
         print(self.body)

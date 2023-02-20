@@ -4,9 +4,9 @@ import random
 
 # simulation setup constants
 
-length_sim = 500
+length_sim = 1000
 
-motorJointRange = 0.5
+motorJointRange = 0.3
 
 numberOfGenerations = 1
 populationSize = 1
