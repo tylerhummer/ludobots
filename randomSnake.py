@@ -45,17 +45,22 @@ class SOLUTION:
 
     def Create_Snake(self):
         self.body = {}
+        seed_number = rSC.seed_number
+        sensor_tracker = 0
         pyrosim.Start_URDF("body.urdf")
 
         for linkName in range(rSC.numLinks):
             if linkName == 0:
                 prevFace = 0
-                self.body[linkName] = SnakeBody(linkName,prevFace,0)
+                self.body[linkName] = SnakeBody(linkName,prevFace,0,seed_number)
+                seed_number += 1
 
             else:
                 prevFace = self.body[linkName-1].faceNum
                 prevDimensions = self.body[linkName-1].dimensions
-                self.body[linkName] = SnakeBody(linkName,prevFace,prevDimensions)
+                self.body[linkName] = SnakeBody(linkName,prevFace,prevDimensions,seed_number)
+                seed_number += 1
+
 
         pyrosim.End()
         print(self.body)
