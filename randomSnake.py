@@ -10,9 +10,10 @@ from randomSnakeBrain import snakeBrain
 class SOLUTION:
 
     def __init__(self, nextAvailableID):
-        self.weights = numpy.random.rand(rSC.numSensorNeurons, rSC.numMotorNeurons)
-        self.weights = self.weights * 2 - 1
-
+        self.weights = numpy.random.rand(rSC.numSensorNeurons, rSC.numMotorNeurons) # create random weights each sensor-motor neuron
+        print(self.weights)
+        self.weights = self.weights * 2 - 1 #scale the weights -1 to 1
+        print(self.weights)
         print(rSC.numSensorNeurons)
         print(rSC.numMotorNeurons)
         
@@ -20,7 +21,7 @@ class SOLUTION:
         self.myID = nextAvailableID
         print("My ID: " + str(self.myID) + " My weights:")
         print(self.weights)
-        print(self.weights[rSC.numSensorNeurons-1][rSC.numMotorNeurons-1])
+        #print(self.weights[rSC.numSensorNeurons-1][rSC.numMotorNeurons-1])
 
     
     def Evaluate(self, directOrGUI):
@@ -41,11 +42,6 @@ class SOLUTION:
         pyrosim.End()
         return
 
-    def Make_Snake(self):
-        self.snake = {}
-
-        for linkName in range(rSC.numLinks):
-            pass
 
     def Create_Snake(self):
         self.body = {}
@@ -71,6 +67,8 @@ class SOLUTION:
         self.sensorNum = 0
         self.motorNum = 0
         print(rSC.numLinks)
+        print(self.weights)
+        print(self.weights.shape)
 
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
@@ -87,7 +85,7 @@ class SOLUTION:
                 self.motorNum += 1
             
         for currentRow in range(rSC.numSensorNeurons):
-            for currentColumn in range(rSC.numMotorNeurons-1):
+            for currentColumn in range(rSC.numMotorNeurons):
                 pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = (currentColumn+self.sensorNum), weight = self.weights[currentRow][currentColumn])
         
         pyrosim.End()
@@ -109,11 +107,10 @@ class SOLUTION:
         print('fitness = ', self.fitness)
         fitnessFile.close()
 
-    def Mutate_Brain(self):
+
+    def Mutate(self):
         pass
 
-    def Mutate_Body(self):
-        pass
 
     def Set_ID(self, nextAvailableID):
         self.myID = nextAvailableID

@@ -31,6 +31,7 @@ class  SnakeBody:
     def Sensing (self):
         self.sense = random.randint(0, 1)
         
+        
     def Face(self,prevFace, prevDimensions):
         self.faceNum = random.randint(0,5)
         while (self.faceNum+prevFace) == 5: #Loop to make sure the next link isn't sent back to the same spot

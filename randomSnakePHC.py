@@ -3,6 +3,7 @@ from randomSnakeSimulation import SIMULATION
 import randomSnakeConstants as c
 import copy
 import os
+import pickle
 
 class PARALLEL_HILL_CLIMBER:
     
@@ -15,32 +16,28 @@ class PARALLEL_HILL_CLIMBER:
         for i in range(0,c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
-        self.Evaluate(self.parents) #***Added this line here which is the same as Evolve below to skip the evolve step!***
+        #self.Evaluate(self.parents) #***Added this line here which is the same as Evolve below to skip the evolve step!***
 
+    def Checkpoint(self):
+        pickle.dump(self, open(c.checkpoint_file_name, "wb"))
 
     def Evolve(self):
         
         self.Evaluate(self.parents)
         
-        '''
-        for i in range(0, c.populationSize):
-            self.parents[i].Start_Simulation("DIRECT")
-
-        for i in range(0, c.populationSize):
-            self.parents[i].Wait_For_Simulation_To_End()
-        '''
         
         for currentGeneration in range(c.numberOfGenerations):
-            self.Evolve_For_One_Generation()
+            self.Evolve_For_One_Generation(currentGeneration)
             #print('current generation ', currentGeneration)
         
 
-    def Evolve_For_One_Generation(self):
+    def Evolve_For_One_Generation(self, currentGeneration):
         self.Spawn()
         self.Mutate()
         self.Evaluate(self.children)
         self.Print()
         self.Select()
+        #self.Checkpoint()
 
     def Spawn(self):
         self.children = {}
@@ -65,7 +62,7 @@ class PARALLEL_HILL_CLIMBER:
     def Select(self):
         #print('parent fitness ', self.parent.fitness)
         for i in self.parents:
-            if (self.children[i].fitness < self.parents[i].fitness):
+            if (self.children[i].fitness > self.parents[i].fitness):
                 self.parents[i] = self.children[i]
 
 
