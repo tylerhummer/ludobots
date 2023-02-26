@@ -37,7 +37,7 @@ class PARALLEL_HILL_CLIMBER:
         self.Evaluate(self.children)
         self.Print()
         self.Select()
-        #self.Checkpoint()
+        #self.Checkpoint()  #uncomment this to add the generations to the checkpointing file
 
     def Spawn(self):
         self.children = {}

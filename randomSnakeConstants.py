@@ -15,7 +15,7 @@ numLinks = 10
 numSensorNeurons = 5
 numMotorNeurons = numLinks - 1
 
-seed_number = 4
+seed_number = 1
 checkpoint_file_name = "checkpoint_seed" + str(seed_number) + ".pkl"
 
 

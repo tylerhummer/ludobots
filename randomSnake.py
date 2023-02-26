@@ -10,18 +10,10 @@ from randomSnakeBrain import snakeBrain
 class SOLUTION:
 
     def __init__(self, nextAvailableID):
-        self.weights = numpy.random.rand(rSC.numSensorNeurons, rSC.numMotorNeurons) # create random weights each sensor-motor neuron
-        print(self.weights)
-        self.weights = self.weights * 2 - 1 #scale the weights -1 to 1
-        print(self.weights)
-        print(rSC.numSensorNeurons)
-        print(rSC.numMotorNeurons)
-        
 
         self.myID = nextAvailableID
-        print("My ID: " + str(self.myID) + " My weights:")
-        print(self.weights)
-        #print(self.weights[rSC.numSensorNeurons-1][rSC.numMotorNeurons-1])
+        print("My ID: " + str(self.myID))
+        
 
     
     def Evaluate(self, directOrGUI):
@@ -46,7 +38,6 @@ class SOLUTION:
     def Create_Snake(self):
         self.body = {}
         seed_number = rSC.seed_number
-        sensor_tracker = 0
         pyrosim.Start_URDF("body.urdf")
 
         for linkName in range(rSC.numLinks):
@@ -71,9 +62,9 @@ class SOLUTION:
         self.neuronNum = 0
         self.sensorNum = 0
         self.motorNum = 0
-        print(rSC.numLinks)
-        print(self.weights)
-        print(self.weights.shape)
+        print("number of links ", rSC.numLinks)
+        #print(self.weights)
+        #print(self.weights.shape)
 
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
@@ -88,9 +79,15 @@ class SOLUTION:
                 pyrosim.Send_Motor_Neuron(name = self.neuronNum, jointName = str(self.body[part].jointName))
                 self.neuronNum += 1
                 self.motorNum += 1
-            
-        for currentRow in range(rSC.numSensorNeurons):
-            for currentColumn in range(rSC.numMotorNeurons):
+
+
+        self.weights = numpy.random.rand(self.sensorNum, self.motorNum)
+        self.weights = self.weights * 2 - 1
+        print(self.weights)
+        print(self.weights.shape)
+
+        for currentRow in range(self.sensorNum):
+            for currentColumn in range(self.motorNum):
                 pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = (currentColumn+self.sensorNum), weight = self.weights[currentRow][currentColumn])
         
         pyrosim.End()
