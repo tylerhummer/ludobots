@@ -15,7 +15,7 @@ class ROBOT:
         self.solutionID = solutionID
         #os.system("del brain" + str(self.solutionID) + ".nndf")
         self.nn = NEURAL_NETWORK("brain" + str(self.solutionID) + ".nndf")
-        self.robotId = p.loadURDF("body.urdf")
+        self.robotId = p.loadURDF("body" + str(self.solutionID) + ".urdf")
         self.world = world
         
 

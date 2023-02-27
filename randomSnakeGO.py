@@ -10,3 +10,4 @@ except:
 
 rSphc.Evolve()
 rSphc.Show_Best()
+rSphc.Show_Evolution()

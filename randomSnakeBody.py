@@ -7,12 +7,12 @@ import randomSnakeConstants as rSC
 
 class  SnakeBody:
 
-    def __init__ (self,linkName,prevFace,prevDimensions,seed_number):
-        self.LinkDimensions(seed_number)
-        self.Sensing()
-        self.Face(prevFace, prevDimensions,seed_number)
+    def __init__ (self,linkName,prevFace,prevDimensions,seed_number, mutation_selection, tracker):
+        self.LinkDimensions(seed_number, mutation_selection, tracker)
+        self.Sensing(seed_number)
+        self.Face(prevFace, seed_number)
         self.Mass()
-        self.Joint_Orientation(seed_number)
+        self.Joint_Orientation(seed_number, mutation_selection, tracker)
         if linkName == rSC.numLinks - 1:
             self.Final_Link(linkName)
         
@@ -24,21 +24,26 @@ class  SnakeBody:
             self.Create_Joint(linkName)
         
 
-    def LinkDimensions (self,seed_number):
-        numpy.random.seed(seed_number)
-        self.dimensions = numpy.random.uniform(0.25, 1.25,3)
-        print(self.dimensions)
+    def LinkDimensions (self,seed_number, mutation_selection, tracker):
+        if mutation_selection == 3 and tracker == 0:
+            numpy.random.seed(None)
+            self.dimensions = numpy.random.uniform(0.25, 1.25,3)
+            
+        else:
+            numpy.random.seed(seed_number)
+            self.dimensions = numpy.random.uniform(0.25, 1.25,3)
+        #print(self.dimensions)
         
 
-    def Sensing (self):
+    def Sensing (self, seed_number):
+        random.seed(seed_number)
         self.sense = random.randint(0, 1)
         
         
-    def Face(self,prevFace, prevDimensions,seed_number):
-        #random.seed(seed_number)
+    def Face(self,prevFace,seed_number):
+        random.seed(seed_number)
         self.faceNum = random.randint(0,5)
         while (self.faceNum+prevFace) == 5: #Loop to make sure the next link isn't sent back to the same spot
-            #random.seed(seed_number)
             self.faceNum = random.randint(0,5)
         
         link = [[-0.5,0,0], [0,0,0.5], [0,-0.5,0], [0,0.5,0], [0,0,-0.5],[0.5,0,0]] #link depends only on previous face
@@ -64,9 +69,13 @@ class  SnakeBody:
         self.linkPos = link[prevFace]*self.dimensions
         self.jointPos = joint[self.faceNum]*self.dimensions
         
-    def Joint_Orientation(self,seed_number):
-        random.seed(seed_number)
-        orient = random.randint(0,2)
+    def Joint_Orientation(self,seed_number, mutation_selection, tracker):
+        if mutation_selection == 2 and tracker == 0:
+            random.seed(None)
+            orient = random.randint(0,2)
+        else:
+            random.seed(seed_number)
+            orient = random.randint(0,2)
         
         if orient == 0: 
             self.jointOrientation = "1 0 0"

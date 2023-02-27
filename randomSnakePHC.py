@@ -1,5 +1,6 @@
 from randomSnake import SOLUTION 
 from randomSnakeSimulation import SIMULATION
+from randomSnakeVisualize import VISUALIZE
 import randomSnakeConstants as c
 import copy
 import os
@@ -11,6 +12,8 @@ class PARALLEL_HILL_CLIMBER:
         os.system("del brain*.nndf")
         os.system("del fitness*.txt")
         os.system("del tmp*.txt")
+        os.system("del body*.urdf")
+        self.fitness_time = VISUALIZE()
         self.parents = {}
         self.nextAvailableID = 0
         for i in range(0,c.populationSize):
@@ -33,11 +36,11 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evolve_For_One_Generation(self, currentGeneration):
         self.Spawn()
-        self.Mutate()
+        self.Mutate(currentGeneration)
         self.Evaluate(self.children)
         self.Print()
-        self.Select()
-        #self.Checkpoint()  #uncomment this to add the generations to the checkpointing file
+        self.Select(currentGeneration)
+        self.Checkpoint()  #uncomment this to add the generations to the checkpointing file
 
     def Spawn(self):
         self.children = {}
@@ -47,9 +50,11 @@ class PARALLEL_HILL_CLIMBER:
             self.nextAvailableID += 1
         
 
-    def Mutate(self):
+    def Mutate(self, currentGeneration):
         for i in self.children:
-            self.children[i].Mutate()
+            #print(self.parents[i].weights)
+            self.children[i].Mutate(currentGeneration)
+            #print(self.children[i].weights)
        
 
     def Print(self):
@@ -59,21 +64,33 @@ class PARALLEL_HILL_CLIMBER:
         print()
 
 
-    def Select(self):
+    def Select(self, currentGeneration):
         #print('parent fitness ', self.parent.fitness)
         for i in self.parents:
-            if (self.children[i].fitness > self.parents[i].fitness):
+            if (abs(self.children[i].fitness) > abs(self.parents[i].fitness)):
                 self.parents[i] = self.children[i]
+                selected_fitness = self.parents[i].fitness
+                print("selected fitness:" + str(self.parents[i].fitness))
+                self.fitness_time.Fitness_vs_Time(selected_fitness,currentGeneration)
+
+            else:
+                self.fitness_time.Fitness_vs_Time(self.parents[i].fitness,currentGeneration)
 
 
     def Show_Best(self):
         best = {}
         best = self.parents[0]
         for i in self.parents:
-            if (self.parents[i].fitness < best.fitness):
+            if (abs(self.parents[i].fitness) > abs(best.fitness)):
                 best = self.parents[i]
-        print(best.fitness)
+        print("best fitness:" + str(best.fitness))
         best.Start_Simulation("GUI")
+
+    
+    def Show_Evolution(self):
+        self.fitness_time.Save()
+        #self.fitness_time.Plot() #uncomment to check to see if it looks like what is expected
+
         
 
     def Evaluate(self, solutions):
