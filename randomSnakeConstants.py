@@ -8,8 +8,8 @@ length_sim = 1500
 
 motorJointRange = 0.3
 
-numberOfGenerations = 300
-populationSize = 10
+numberOfGenerations = 1
+populationSize = 1
 
 numLinks = 10
 numSensorNeurons = 5
