@@ -10,7 +10,7 @@ from randomSnakeBrain import snakeBrain
 class SOLUTION:
 
     def __init__(self, nextAvailableID):
-        self.weights = numpy.random.rand(6,9)   #*** Use this line for random seed 5 and 124 and 444 and 7766 and 7760***
+        self.weights = numpy.random.rand(6,9)   #*** Use this line for random seed 5 and 124 and 444 and 7760 and 1121***
         #self.weights = numpy.random.rand(5,9)   #*** Use this line for random seed 77***
         #self.weights = numpy.random.rand(4,9)  #*** Use this line for random seed 111***
         self.weights = self.weights * 2 - 1
@@ -88,6 +88,9 @@ class SOLUTION:
                 self.neuronNum += 1
                 self.motorNum += 1
 
+        print(self.sensorNum)
+        print(self.motorNum)
+        
         #self.weights = numpy.random.rand(self.sensorNum, self.motorNum)
         #self.weights = self.weights * 2 - 1
         #print(self.weights)
