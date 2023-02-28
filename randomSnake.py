@@ -88,9 +88,6 @@ class SOLUTION:
                 self.neuronNum += 1
                 self.motorNum += 1
 
-        print(self.sensorNum)
-        print(self.motorNum)
-        exit()
         #self.weights = numpy.random.rand(self.sensorNum, self.motorNum)
         #self.weights = self.weights * 2 - 1
         #print(self.weights)
