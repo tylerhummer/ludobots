@@ -106,7 +106,7 @@ def Prepare_To_Simulate(bodyID):
 
     Prepare_Joint_Dictionary(bodyID)
 
-def Send_Link(name, pos, size, objectType,mass,sense):
+def Send_Link(name, pos, size, objectType,mass,sense=0):
 
     global availableLinkIndex
 
@@ -141,7 +141,10 @@ def Send_Cylinder(name="default", pos=[0,0,0],size=[1,1],mass=1.0):
     Send_Link(name, pos, size, "cylinder", mass)
 
 def Send_Sphere(name="default", pos=[0,0,0], size=[0.5],mass=1.0):
-    Send_Link(name, pos, size,"sphere",mass)
+    Send_Link(name, pos, size,"sphere",mass,sense=0)
+
+def Send_OBJ(name="default", pos=[0,0,0],size=[1,1,1],mass=1.0):
+    Send_Link(name, pos, size, "obj",mass)
 
 def Send_Joint(name,parent,child,type,position, jointAxis):
 

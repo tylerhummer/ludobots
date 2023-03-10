@@ -6,6 +6,7 @@ from motor import MOTOR
 import randomSnakeConstants as rSC
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import os
+import math
 
 
 class ROBOT:
@@ -77,7 +78,14 @@ class ROBOT:
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         basePosition = basePositionAndOrientation[0]
         xPosition = basePosition[0]
-        fitness = xPosition
+        yPosition = basePosition[1]
+
+        if yPosition > 5:
+            fitness = 0
+
+        else:
+            fitness = xPosition
+        
         f = open("tmp" + str(self.solutionID) + ".txt", "w")
         os.system("rename tmp"+str(self.solutionID)+".txt " + "fitness"+str(self.solutionID)+".txt")
         f = open("fitness" + str(self.solutionID) + ".txt", "w")

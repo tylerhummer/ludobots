@@ -18,7 +18,7 @@ class GEOMETRY_SDF:
 
             self.string4 = '   </box>'
 
-        else:
+        elif (objectType == 'sphere'):
             
             sizeString = str(size[0])
 
@@ -28,6 +28,14 @@ class GEOMETRY_SDF:
 
             self.string4 = '   </sphere>'
 
+        elif (objectType == "obj"):
+            sizeString = str(size[0]) + " " + str(size[1]) + " " + str(size[2])
+
+            self.string2 = '   <mesh>'
+
+            self.string3 = '    <mesh filename="RhomDoDeca.obj" scale=' + sizeString + '" />'
+            
+            self.string4 = '   </mesh>'
 
         self.string5 = '</geometry>'
 

@@ -10,9 +10,7 @@ from randomSnakeBrain import snakeBrain
 class SOLUTION:
 
     def __init__(self, nextAvailableID):
-        self.weights = numpy.random.rand(6,9)   #*** Use this line for random seed 5 and 124 and 444 and 7760 and 1121***
-        #self.weights = numpy.random.rand(5,9)   #*** Use this line for random seed 77***
-        #self.weights = numpy.random.rand(4,9)  #*** Use this line for random seed 111***
+        self.weights = numpy.random.rand(rSC.numSensorNeurons,rSC.numLinks)   #*** Use this line for random seed 5 and 124 and 444 and 7760 and 1121***
         self.weights = self.weights * 2 - 1
         self.myID = nextAvailableID
         print("My ID: " + str(self.myID))
@@ -22,14 +20,20 @@ class SOLUTION:
 
     
     def Evaluate(self, directOrGUI):
-        self.Create_World()
+        if self.myID == 0:
+            self.Create_World()
         self.Create_Snake()
         self.Create_Snake_Brain()
 
         os.system("start /B python randomSnakeSimulate.py " + str(directOrGUI) + " " + str(self.myID))
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
             time.sleep(0.1)
-        fitnessFile = open("fitness" + str(self.myID) + ".txt","r")
+        while True:
+            try:
+                fitnessFile = open("fitness" + str(self.myID) + ".txt","r")
+                break
+            except:
+                pass
         self.fitness = float(fitnessFile.read())
         print('fitness = ', self.fitness)
         fitnessFile.close()
@@ -44,21 +48,30 @@ class SOLUTION:
         self.body = {}
         seed_number = rSC.seed_number
         link_select = self.link_select
+        sensor_tracker = 0
         pyrosim.Start_URDF("body" + str(self.myID) + ".urdf")
 
         for linkName in range(rSC.numLinks):
+            sensor_val = random.randint(0,1)
+            if ((rSC.numSensorNeurons)-linkName) <= sensor_tracker:
+                sensor_val = 1
+            if sensor_tracker >= rSC.numSensorNeurons:
+                sensor_val = 0
+            sensor_tracker += sensor_val
+
             if linkName == 0:
                 prevFace = 0
-                self.body[linkName] = SnakeBody(linkName,prevFace,0,seed_number, self.mutation_selection, link_select)
+                self.body[linkName] = SnakeBody(linkName,prevFace,0,sensor_val, self.mutation_selection, link_select)
                 seed_number += 1
                 link_select -= 1
 
             else:
                 prevFace = self.body[linkName-1].faceNum
                 prevDimensions = self.body[linkName-1].dimensions
-                self.body[linkName] = SnakeBody(linkName,prevFace,prevDimensions,seed_number, self.mutation_selection, link_select)
+                self.body[linkName] = SnakeBody(linkName,prevFace,prevDimensions,sensor_val, self.mutation_selection, link_select)
                 seed_number += 1
                 link_select -= 1
+            
 
 
         pyrosim.End()
@@ -95,7 +108,8 @@ class SOLUTION:
         #self.weights = self.weights * 2 - 1
         #print(self.weights)
         #print(self.weights.shape)
-
+        self.weights = numpy.random.rand(self.neuronNum,rSC.numLinks)
+        self.weights = self.weights * 2 - 1
         for currentRow in range(self.sensorNum):
             for currentColumn in range(self.motorNum):
                 pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = (currentColumn+self.sensorNum), weight = self.weights[currentRow-1][currentColumn-1])
@@ -126,7 +140,7 @@ class SOLUTION:
             pass
                         
         else:
-            random.seed(None)
+            #random.seed(None)
             pick = random.random()
             if pick >= 0.3:     # 70% chance of sensor-motor neuron mutation
                 self.mutation_selection = 1

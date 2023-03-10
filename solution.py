@@ -25,8 +25,8 @@ class SOLUTION:
         self.Create_World()
         #self.Create_Body()
         #self.Create_Brain()
-        self.Create_Crab()
-        self.Create_Crab_Brain()
+        self.Create_RD()
+        self.Create_RD_Brain()
         os.system("start /B python simulate.py " + str(directOrGUI) + " " + str(self.myID))
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
             time.sleep(0.1)
@@ -36,9 +36,13 @@ class SOLUTION:
         fitnessFile.close()
 
     def Start_Simulation(self, directOrGUI):
-        self.Create_World()
+        '''self.Create_World()
         self.Create_Crab()
-        self.Create_Crab_Brain()
+        self.Create_Crab_Brain()'''
+        self.Create_World()
+        self.Create_RD()
+        self.Create_RD_Brain()
+        
         #self.Create_Body()
         #self.Create_Brain()
         os.system("start /B python simulate.py " + str(directOrGUI) + " " + str(self.myID))
@@ -54,10 +58,12 @@ class SOLUTION:
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Sphere(name="BallA", pos=[-0.25,+0.25,2.5], size=[0.25])
+
+        '''
+        pyrosim.Send_Sphere(name="BallA", pos=[-0.25,+0.25,2.5], size=[0.1,0.1,0.1])
         pyrosim.Send_Sphere(name="BallB", pos=[-0.5,+0.5,3.5], size=[0.25])
         pyrosim.Send_Sphere(name="BallC", pos=[-0.75,+0.25,4.5], size=[0.25])
-        pyrosim.Send_Sphere(name="BallD", pos=[+0.25,+0.5,3.5], size=[0.25])
+        pyrosim.Send_Sphere(name="BallD", pos=[+0.25,+0.5,3.5], size=[0.25])'''
         #pyrosim.Send_Cube(name="bowlingPin", pos=[-3,-2,0.5], size=[self.legWidth,self.legDepth,self.legLength])
         pyrosim.End()
         return
@@ -124,7 +130,7 @@ class SOLUTION:
         
     
     def Create_Crab(self):
-        pyrosim.Start_URDF("body1.urdf")
+        pyrosim.Start_URDF("crab.urdf")
         pyrosim.Send_Link(name="Torso", pos=[0,0,1], size=[c.crabTorsoDepth, c.crabTorsoLength, c.crabTorsoWidth], objectType="box", mass=10.0)
         pyrosim.Send_Joint(name = "Torso_FrontRightLeg", parent = "Torso", child = "FrontRightLeg", type = "revolute", position = [0.5,0.5,1.0], jointAxis = "0 0 1")
         pyrosim.Send_Link(name="FrontRightLeg", pos=[0.5,0,0], size=[self.legLength, self.legWidth, self.legDepth], objectType="box", mass=1.0)
@@ -218,6 +224,34 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron(name = 34, jointName = "Torso_FrontLeftArm")
         pyrosim.Send_Motor_Neuron(name = 35, jointName = "FrontLeftArm_FrontLeftClaw")
         pyrosim.Send_Motor_Neuron(name = 36, jointName = "FrontLeftClaw_FrontLeftClawTip")
+
+        for currentRow in range(c.numSensorNeurons):
+            for currentColumn in range(c.numMotorNeurons):
+                pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = (currentColumn+c.numSensorNeurons), weight = self.weights[currentRow][currentColumn])
+        
+        pyrosim.End()
+        return()
+    
+
+    def Create_RD_World (self):
+        pyrosim.Start_SDF("world.sdf")
+        #pyrosim.Send_Cube(name="bowlingPin", pos=[-3,-2,0.5], size=[self.legWidth,self.legDepth,self.legLength])
+        pyrosim.End()
+        return
+
+    def Create_RD (self):
+        pyrosim.Start_URDF("body.urdf")
+        pyrosim.Send_Link(name="Central", pos=[0,0,0], size=[0.01, 0.01, 0.01], objectType="obj", mass=1.0,sense=1)
+        pyrosim.Send_Joint(name = "Central_Periph", parent = "Central", child = "Periph", type = "fixed", position = [1.1,1.55,0], jointAxis = "1 0 0")
+        pyrosim.Send_Link(name="Periph", pos=[0,0,0], size=[0.01, 0.01, 0.01], objectType="obj", mass=1.0, sense=1)
+        pyrosim.End()
+        return()
+    
+    def Create_RD_Brain (self):
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+        pyrosim.Send_Sensor_Neuron(name = 0, linkName = "Central")
+        pyrosim.Send_Sensor_Neuron(name = 1, linkName = "Periph")
+        pyrosim.Send_Motor_Neuron(name = 2, jointName = "Central_Periph")
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):

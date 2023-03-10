@@ -10,8 +10,8 @@
             <geometry>
                 <box size="1 1.5 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -39,8 +39,8 @@
             <geometry>
                 <box size="1 0.2 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -68,8 +68,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -97,8 +97,8 @@
             <geometry>
                 <box size="1 0.2 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -126,8 +126,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -155,8 +155,8 @@
             <geometry>
                 <box size="1 0.2 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -184,8 +184,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -213,8 +213,8 @@
             <geometry>
                 <box size="1 0.2 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -242,8 +242,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -271,8 +271,8 @@
             <geometry>
                 <box size="1 0.2 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -300,8 +300,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -329,8 +329,8 @@
             <geometry>
                 <box size="1 0.2 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -358,8 +358,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -387,8 +387,8 @@
             <geometry>
                 <box size="0.2 1 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -416,8 +416,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -445,8 +445,8 @@
             <geometry>
                 <box size="0.1 0.4 0.1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -474,8 +474,8 @@
             <geometry>
                 <box size="0.2 1 0.2" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -503,8 +503,8 @@
             <geometry>
                 <box size="0.2 0.2 1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>
@@ -532,8 +532,8 @@
             <geometry>
                 <box size="0.1 0.4 0.1" />
             </geometry>
-            <material name="King Crab">
-                <color rgba="0.8 0.496 0.516 1.0"/>
+            <material name="No Sensor">
+                <color rgba="0.184 0.553 0.933 1.0"/>
             </material>
         </visual>
         <collision>

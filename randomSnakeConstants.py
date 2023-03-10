@@ -4,18 +4,18 @@ import random
 
 # simulation setup constants
 
-length_sim = 1500
+length_sim = 1000
 
 motorJointRange = 0.3
 
 numberOfGenerations = 1
-populationSize = 1
+populationSize = 15
 
 numLinks = 10
 numSensorNeurons = 5
 numMotorNeurons = numLinks - 1
 
-seed_number = 1121
+seed_number = 7
 checkpoint_file_name = "checkpoint_seed" + str(seed_number) + ".pkl"
 csv_file_name = "seed_" + str(seed_number) + ".csv"
 

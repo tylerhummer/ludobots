@@ -20,7 +20,14 @@ class GEOMETRY_URDF:
 
             self.string2 = '    <sphere radius="' + sizeString + '" />'
 
+        elif (objectType == "obj"):
+            sizeString = str(size[0]) + " " + str(size[1]) + " " + str(size[2])
+
+            self.string2 = '    <mesh filename="RhomDoDeca.obj" scale="' + sizeString + '" />'
+            
         self.string3 = '</geometry>'
+
+        
 
     def Save(self,f):
 

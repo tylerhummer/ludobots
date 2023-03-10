@@ -1,6 +1,5 @@
 import numpy
 import matplotlib.pyplot as plt
-import pandas as pd
 import randomSnakeConstants as RSc
 
 class VISUALIZE:

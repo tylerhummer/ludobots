@@ -24,16 +24,16 @@ frontLeg_targetAngles = (frontLeg_amplitude)*(numpy.sin(frontLeg_frequency * x_v
 
 motorJointRange = 0.1
 
-numberOfGenerations = 3
-populationSize = 3
+numberOfGenerations = 1
+populationSize = 1
 
 #numSensorNeurons = 10
 #numMotorNeurons = 9
 
 
 #Crab Constants
-numSensorNeurons = 19
-numMotorNeurons = 18
+numSensorNeurons = 2
+numMotorNeurons = 1
 
 #Crab Body Dimension Stuff
 crabTorsoLength = 1.5
