@@ -76,11 +76,15 @@ class ROBOT:
         '''
         #fitness = ballAHeight + ballBHeight + ballCHeight + ballDHeight + (5 * yPosition)
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        #print(basePositionAndOrientation)
         basePosition = basePositionAndOrientation[0]
+        #print(basePosition)
         xPosition = basePosition[0]
-        yPosition = basePosition[1]
+        #print(xPosition)
+        zPosition = basePosition[2]
+        #print(zPosition)
 
-        if yPosition > 5:
+        if zPosition > 2:
             fitness = 0
 
         else:

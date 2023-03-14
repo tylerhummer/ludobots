@@ -20,7 +20,7 @@ class SOLUTION:
 
     
     def Evaluate(self, directOrGUI):
-        if self.myID == 0:
+        if self.myID <= 14:
             self.Create_World()
         self.Create_Snake()
         self.Create_Snake_Brain()
@@ -34,19 +34,25 @@ class SOLUTION:
                 break
             except:
                 pass
-        self.fitness = float(fitnessFile.read())
+        while True:
+            if float(fitnessFile.read()) == "":
+                self.fitness = 0
+                break
+            else:
+                self.fitness = float(fitnessFile.read())
+                break
+        
         print('fitness = ', self.fitness)
         fitnessFile.close()
 
     def Create_World(self):
-        pyrosim.Start_SDF("world.sdf")
+        pyrosim.Start_SDF("world" + str(self.myID) + ".sdf")
         pyrosim.End()
         return
 
 
     def Create_Snake(self):
         self.body = {}
-        seed_number = rSC.seed_number
         link_select = self.link_select
         sensor_tracker = 0
         pyrosim.Start_URDF("body" + str(self.myID) + ".urdf")
@@ -62,14 +68,12 @@ class SOLUTION:
             if linkName == 0:
                 prevFace = 0
                 self.body[linkName] = SnakeBody(linkName,prevFace,0,sensor_val, self.mutation_selection, link_select)
-                seed_number += 1
                 link_select -= 1
 
             else:
                 prevFace = self.body[linkName-1].faceNum
                 prevDimensions = self.body[linkName-1].dimensions
                 self.body[linkName] = SnakeBody(linkName,prevFace,prevDimensions,sensor_val, self.mutation_selection, link_select)
-                seed_number += 1
                 link_select -= 1
             
 
@@ -101,8 +105,8 @@ class SOLUTION:
                 self.neuronNum += 1
                 self.motorNum += 1
 
-        print(self.sensorNum)
-        print(self.motorNum)
+        #print(self.sensorNum)
+        #print(self.motorNum)
         
         #self.weights = numpy.random.rand(self.sensorNum, self.motorNum)
         #self.weights = self.weights * 2 - 1
@@ -120,7 +124,7 @@ class SOLUTION:
 
 
     def Start_Simulation(self, directOrGUI):
-        self.Create_World()
+        #self.Create_World()
         self.Create_Snake()
         self.Create_Snake_Brain()
         os.system("start /B python randomSnakeSimulate.py " + str(directOrGUI) + " " + str(self.myID))
@@ -128,10 +132,17 @@ class SOLUTION:
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
             time.sleep(0.1)
+        
         fitnessFile = open("fitness" + str(self.myID) + ".txt","r")
-        self.fitness = float(fitnessFile.read())
+        try: 
+            self.fitness = float(fitnessFile.read())
+        
+        except ValueError:
+            self.fitness = 0
         print('fitness = ', self.fitness)
         fitnessFile.close()
+
+
 
 
     def Mutate(self, currentGeneration):

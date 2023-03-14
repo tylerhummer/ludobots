@@ -6,7 +6,7 @@ class VISUALIZE:
 
     def __init__ (self):
         self.running_max = numpy.array([0,0]).reshape(2,1)
-        print(self.running_max)
+        #print(self.running_max)
 
     
     def Fitness_vs_Time (self, selectedFitness, currentGeneration):
@@ -14,18 +14,15 @@ class VISUALIZE:
             add = numpy.array([currentGeneration, numpy.abs(selectedFitness)]).reshape(2,1)
             self.running_max = numpy.append(self.running_max, add,axis=1)
         else:
-            pass
+            add = numpy.array([currentGeneration, max(numpy.abs(self.running_max[1]))]).reshape(2,1)
+            if add[0] in self.running_max:
+                pass
+            else:
+                self.running_max = numpy.append(self.running_max, add, axis=1)
             #add = numpy.array([currentGeneration, max(self.running_max[1])]).reshape(2,1)
             #self.running_max = numpy.append(self.running_max, add, axis=1)
 
-        print(self.running_max)
-
-    def Plot (self):
-        plt.title("Evolved Fitness") 
-        plt.xlabel("Generations") 
-        plt.ylabel("Fitness") 
-        plt.plot(self.running_max[0],self.running_max[1]) 
-        plt.show() 
+        #print(self.running_max)
 
     def Save (self):
         transposed = self.running_max.T

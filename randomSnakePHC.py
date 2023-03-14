@@ -2,6 +2,8 @@ from randomSnake import SOLUTION
 from randomSnakeSimulation import SIMULATION
 from randomSnakeVisualize import VISUALIZE
 import randomSnakeConstants as c
+import numpy
+import random
 import copy
 import os
 import pickle
@@ -22,7 +24,12 @@ class PARALLEL_HILL_CLIMBER:
         #self.Evaluate(self.parents) #***Added this line here which is the same as Evolve below to skip the evolve step!***
 
     def Checkpoint(self):
-        pickle.dump(self, open(c.checkpoint_file_name, "wb"))
+        self.numpyrandomstate = numpy.random.get_state()
+        self.randomstate = random.getstate()
+        f = open(c.checkpoint_file_name, 'wb')
+        pickle.dump(self, f)
+        f.close()
+
 
     def Evolve(self):
         

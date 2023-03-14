@@ -6,10 +6,12 @@ import random
 
 try:
     rSphc = pickle.load(open(RSc.checkpoint_file_name, "rb"))
+    random.setstate(rSphc.randomstate)
+    numpy.random.set_state(rSphc.numpyrandomstate)
 
 except:
-    random.seed(1)
-    numpy.random.seed(1)
+    random.seed(RSc.seed_number)
+    numpy.random.seed(RSc.seed_number)
     rSphc = PARALLEL_HILL_CLIMBER()
 
 rSphc.Evolve()
