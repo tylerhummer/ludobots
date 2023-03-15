@@ -64,11 +64,19 @@ The following are *pseudo-randomly* selected:
 4. If the offspring, with the new mutation, provides a better fitness, it is then saved and used to produce offspring for the following generations. Otherwise, the offspring is thrown out and the parent lives on to produce more offspring.
 5. **Fitness** is the absolute value of the distance of the base link from the origin. Directionality was not taken into consideration for this evolutionary process.
 
-The process of how the fitness imporved vs time can be seen for 10 random seeds below!
+The process of how the fitness improved vs time can be seen for 10 random seeds below!
 ![fitness plot](fitness_vs_time.PNG)
 
+### Results
 
-- You can see the full videos **with music** here [(random snake)](https://youtu.be/kGDtNsKyQPk) and here [(random snake in 3D)](https://youtu.be/jUNL5z_xI_Q) and now the final project here [(random snake with evolved brain and body)]()
+- As evolution progressed, the improvements that it was able to find were mostly to the brain, not the body. These changes usually resulted in only minor improvements.
+- For 2 of the 10 random seeds, Seed 15 and Seed 10, random changes to the body that were greatly beneficial were found very late in the evolutionary process.
+- A possible issue with the way that evolution took place was that the motor strength was a constant, whereas the weight of the links was calculated based on their volumes. This led to smaller links potentially being more beneficial due to their relative strength to weight ratios.
+- A different evolutionary algorithm would likely produce better results, especially to avoid getting caught in local optmima within the design space, such as what happened with Seed 69, Seed 20, and Seed 11.
+
+
+
+- You can see the full videos **with music** of the [(random snake)](https://youtu.be/kGDtNsKyQPk) and here [(random snake in 3D)](https://youtu.be/jUNL5z_xI_Q) and now the final project here [(random snake with evolved brain and body)]()
 
 
 ## The Catching Crab
