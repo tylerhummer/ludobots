@@ -39,7 +39,7 @@ class SIMULATION:
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.backLeg_targetAngles[i], maxForce=50)
             #pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName ='Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition = c.frontLeg_targetAngles[i], maxForce=50)
             if (self.directOrGUI == "GUI"):
-                time.sleep(1/100)
+                time.sleep(1/50)
             
 
     def Get_Fitness(self):
